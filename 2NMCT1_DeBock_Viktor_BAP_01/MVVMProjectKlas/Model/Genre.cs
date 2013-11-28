@@ -39,7 +39,7 @@ namespace MVVMProjectKlas.Model
                 Genre aNieuw = new Genre();
 
                 aNieuw.ID = reader["ID"].ToString();
-                aNieuw.Name = reader["Name"].ToString();
+                aNieuw.Name = reader["GenreName"].ToString();
                 lijst.Add(aNieuw);
             }
 

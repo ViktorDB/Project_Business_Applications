@@ -88,21 +88,25 @@ namespace MVVMProjectKlas.Model
                 //aNieuw.Genres = reader["Genres"];
 
 
-                String sSQLJOIN = "SELECT * FROM Band INNER JOIN Band_Genre ON Band.ID = Band_Genre.BandID WHERE BandID={0}";
+                //SELECT * FROM Band INNER JOIN Band_Genre ON Band.ID = Band_Genre.BandID INNER JOIN Genre ON Genre.ID = Band_Genre.GenreID WHERE BandID = {0}
+
+
+                String sSQLJOIN = "SELECT * FROM Band INNER JOIN Band_Genre ON Band.ID = Band_Genre.BandID INNER JOIN Genre ON Genre.ID = Band_Genre.GenreID WHERE BandID = {0}";
                 string data = Convert.ToString(NieuwId);
                 string sSQLGenre = string.Format(sSQLJOIN, data);
                 DbDataReader readerGenre = Database.GetData(sSQLGenre);
-                ObservableCollection<Genre> Genres = new ObservableCollection<Genre>();
 
-                //while (readerGenre.Read())
-                //{
-                //    Genre aNieuwType = new Genre();
-                //    aNieuwType.ID = readerGenre["ID"].ToString();
-                //    aNieuwType.Name = readerGenre["Name"].ToString();
+                aNieuw.Genres = new ObservableCollection<Genre>();
+
+                while (readerGenre.Read())
+                {
+                    Genre aNieuwType = new Genre();
+                    aNieuwType.ID = readerGenre["GenreID"].ToString();
+                    aNieuwType.Name = readerGenre["GenreName"].ToString();
 
 
-                //    aNieuw.Genres = aNieuwType;
-                //}
+                    aNieuw.Genres.Add(aNieuwType);
+                }
                 lijst.Add(aNieuw);
             }
 
