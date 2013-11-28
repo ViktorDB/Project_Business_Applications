@@ -74,7 +74,7 @@
         <TextBox Text="{Binding SelectedBand.Name}" Grid.Row="7" TextWrapping="Wrap" Grid.ColumnSpan="5" Grid.Column="12" Margin="5" VerticalContentAlignment="Center"/>
         <Label Content="Genre" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="4" Grid.Row="2" Grid.Column="19" Margin="5"/>
         <ComboBox ItemsSource="{Binding Genres}" DisplayMemberPath="Name" Grid.Column="19" Grid.Row="3" Grid.ColumnSpan="3" Margin="5"/>
-        <ListBox Grid.ColumnSpan="5" Grid.Column="19" Grid.Row="4" Grid.RowSpan="3" Margin="5"/>
+        <ListBox DisplayMemberPath="Name" ItemsSource="{Binding SelectedBand.Genres}" Grid.ColumnSpan="5" Grid.Column="19" Grid.Row="4" Grid.RowSpan="3" Margin="5"/>
         <Image Grid.Column="12" Grid.Row="3" Source="Images/no_image.gif" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="5"/>
         <Button Content="upload" Grid.Column="15" Grid.Row="5" Grid.ColumnSpan="2" Margin="5"/>
         <Label Content="Twitter" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="19" Grid.ColumnSpan="5" Grid.Row="7" Margin="5"/>
