@@ -1,0 +1,232 @@
+﻿<UserControl x:Class="MVVMProjectKlas.View.Instellingen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:MVVMProjectKlas.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="1280">
+    <Grid Background="White" Height="547">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.ColumnSpan="23" Grid.Row="2" Grid.RowSpan="10" Grid.Column="1" VerticalContentAlignment="Bottom">
+            <TabItem Header="Line-Up" HorizontalAlignment="Right" Width="59.32">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1"><Run Language="nl-be" Text="Voeg stage toe"/></TextBlock>
+                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="1"/>
+                    <Button Content="Voeg toe" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="1"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="1"><Run Language="nl-be" Text="Wijzig stage"/></TextBlock>
+                    <TextBox Grid.Column="5" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <Label Content="Nieuwe naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="5"/>
+                    <Button Content="Wijzig" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="8"/>
+                    <Label Content="Kies de stage" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3"/>
+                    <ComboBox Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Bands">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1"><Run Language="nl-be" Text="Voeg genre toe"/></TextBlock>
+                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="1"/>
+                    <Button Content="Voeg toe" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="1"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="1"><Run Language="nl-be" Text="Wijzig genre"/></TextBlock>
+                    <TextBox TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <Label Content="Nieuwe naam voor genre" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="5"/>
+                    <Button Content="Wijzig" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="8"/>
+                    <Label Content="Kies het genre" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="3"/>
+                    <ComboBox Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Staff" HorizontalAlignment="Left" Height="19.96" VerticalAlignment="Top" Width="55.32">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"><Run Language="nl-be" Text="Voeg type toe"/></TextBlock>
+                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="1"/>
+                    <Button Content="Voeg toe" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="1"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="1"><Run Language="nl-be" Text="Wijzig type"/></TextBlock>
+                    <TextBox TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <Label Content="Nieuwe naam voor type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="5"/>
+                    <Button Content="Wijzig" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="8"/>
+                    <Label Content="Kies het type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="3"/>
+                    <ComboBox Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tickets" HorizontalAlignment="Left" Height="19.96" VerticalAlignment="Top" Width="55.32">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Height="29" Margin="0,0.997,33.45,5.173" TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1"><Run Language="nl-be" Text="Voeg type toe"/></TextBlock>
+                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="1"/>
+                    <Button Content="Voeg toe" Grid.ColumnSpan="2" Grid.Row="10" Grid.Column="1"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="1"><Run Language="nl-be" Text="Wijzig type"/></TextBlock>
+                    <Button Content="Wijzig" Grid.ColumnSpan="2" Grid.Column="8" Grid.Row="8"/>
+                    <Label Content="Kies het type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="3"/>
+                    <ComboBox Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <Label Content="Prijs" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="5" Grid.Column="1"/>
+                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="8" VerticalContentAlignment="Center"/>
+                    <Label Content="Aantal tickets" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="7" Grid.Column="1"/>
+                    <TextBox Grid.Column="5" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="5"/>
+                    <TextBox Grid.Column="8" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <Label Content="Prijs" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="8" Grid.Row="5"/>
+                    <TextBox Grid.Column="8" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <Label Content="Aantal tickets" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="8" Grid.Row="3"/>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

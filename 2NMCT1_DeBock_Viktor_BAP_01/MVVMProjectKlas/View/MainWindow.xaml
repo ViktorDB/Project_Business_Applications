@@ -1,0 +1,60 @@
+﻿<Window x:Class="MVVMProjectKlas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:MVVMProjectKlas.ViewModel"
+        xmlns:v="clr-namespace:MVVMProjectKlas.View"
+        Title="MainWindow" Height="720" Width="1280" MinWidth="1280" MinHeight="720" Background="#FFD4D4D4" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:ApplicationVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:MainPageVM}">
+            <v:MainPage/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:LineUpVM}">
+            <v:LineUp/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:BandsVM}">
+            <v:Bands/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:StaffVM}">
+            <v:Staff/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:TicketsVM}">
+            <v:Tickets/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:InstellingenVM}">
+            <v:Instellingen/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Width="1280" Height="720">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="173*"/>
+            <RowDefinition Height="547*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Margin="0,0,7.5,0" Background="#FF398A97" Grid.ColumnSpan="5" Grid.RowSpan="1"/>
+        <TextBlock Grid.ColumnSpan="10" HorizontalAlignment="Left" Height="58.5" Margin="32,16.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="444" FontSize="40" FontWeight="Bold" FontStyle="Italic" Foreground="White"><Run Language="nl-be" Text="Festival Organizer"/></TextBlock>
+        
+        <ItemsControl ItemsSource="{Binding Pages}" Grid.ColumnSpan="5" Margin="0,60,8.333,0">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="0"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Name}" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}"
+                            Margin="27" Width="158" Height="50" Grid.ColumnSpan="5"/>                   
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>  
+        <ContentControl Grid.Row="1" Content="{Binding CurrentPage}" Grid.ColumnSpan="5" Margin="0,0,8.5,31.5"/>
+    </Grid>
+</Window>

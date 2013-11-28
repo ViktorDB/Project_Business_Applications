@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="MVVMProjectKlas.View.Staff"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="1280"
+             xmlns:vm="clr-namespace:MVVMProjectKlas.ViewModel" Height="540" Foreground="{x:Null}">
+    <UserControl.Resources>
+        <DataTemplate x:Key="StaffTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}" Margin="4"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid Margin="0" Height="547" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Staff" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>
+        <Label Content="Informatie" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.Column="12" Grid.ColumnSpan="4"/>
+        <ListBox SelectedIndex="-1" SelectedItem="{Binding SelectedStaff}" ItemsSource="{Binding Staff}" ItemTemplate="{StaticResource StaffTemplate}" Grid.ColumnSpan="9" Grid.Row="4" Grid.RowSpan="8" Grid.Column="1" IsEnabled="True" Margin="5"/>
+        <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="5" Margin="5" VerticalContentAlignment="Center"/>
+        <Button Content="Zoek" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="2" Margin="5"/>
+        <TabControl Grid.ColumnSpan="15" Grid.Column="10" HorizontalAlignment="Left" Height="403" Margin="50,0,0,0" Grid.Row="3" Grid.RowSpan="9" VerticalAlignment="Top" Width="668">
+        	<TabItem x:Name="___TabItem___Info_" Header="Info" Margin="0">
+        		<Grid Background="#FFE5E5E5" Margin="0">
+        			<Grid.RowDefinitions>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        			</Grid.RowDefinitions>
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="1*"/>
+        			</Grid.ColumnDefinitions>
+        			<Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="3" Grid.Column="1"/>
+        			<TextBox Text="{Binding SelectedStaff.Email}" Grid.Row="7" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
+        			<TextBox Text="{Binding SelectedStaff.Company}" Grid.Row="3" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
+        			<TextBox Text="{Binding SelectedStaff.Name}" Grid.Row="1" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
+        			<Label Content="Type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1"/>
+        			<ComboBox SelectedValue="{Binding SelectedStaff.JobRole.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedStaff.JobRole}" ItemsSource="{Binding ContactPersonTypes}" DisplayMemberPath="Name" Grid.Row="5" Grid.ColumnSpan="5" Grid.Column="1"/>
+        			<Label Content="Bedrijf" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="2" Grid.ColumnSpan="4" Grid.Column="1"/>
+        			<Label Content="E-mail" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="1"/>
+        			<Button Command="{Binding UpdateStaff}" Content="Wijzig" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="5"/>
+        			<Label Content="Stad" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.ColumnSpan="3"/>
+        			<TextBox Text="{Binding SelectedStaff.City}" Grid.Row="1" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<Label Content="Adres" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="3"/>
+        			<TextBox Text="{Binding SelectedStaff.Adres}" Grid.Row="3" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<Label Content="Telefoon" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="3"/>
+        			<TextBox Text="{Binding SelectedStaff.Phone}" Grid.Row="5" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<Label Content="GSM" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="3"/>
+        			<TextBox Text="{Binding SelectedStaff.Cellphone}" Grid.Row="7" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        		</Grid>
+        	</TabItem>
+        	<TabItem Header="+">
+        		<TabItem.Background>
+        			<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+        				<GradientStop Color="#FFF0F0F0" Offset="0"/>
+        				<GradientStop Color="#FF64E036" Offset="1"/>
+        			</LinearGradientBrush>
+        		</TabItem.Background>
+        		<Grid Background="#FFE5E5E5">
+        			<Grid.RowDefinitions>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        				<RowDefinition Height="1*"/>
+        			</Grid.RowDefinitions>
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        				<ColumnDefinition Width="1*"/>
+        			</Grid.ColumnDefinitions>
+        			<Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="3" Grid.Column="1"/>
+                    <TextBox Text="{Binding InsertEmail, Mode=TwoWay}" Grid.Row="7" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
+                    <TextBox Text="{Binding InsertCompany, Mode=TwoWay}" Grid.Row="3" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
+        			<TextBox Text="{Binding InsertName, Mode=TwoWay}" Grid.Row="1" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
+        			<Label Content="Type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1"/>
+                    <ComboBox SelectedValue="{Binding InsertJobRole.ID, Mode=TwoWay}" SelectedValuePath="ID" SelectedItem="{Binding InsertJobRole}" ItemsSource="{Binding ContactPersonTypes}" DisplayMemberPath="Name" Grid.Row="5" Grid.ColumnSpan="5" Grid.Column="1"/>
+        			<Label Content="Bedrijf" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="2" Grid.ColumnSpan="4" Grid.Column="1"/>
+        			<Label Content="E-mail" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="1"/>
+        			<Label Content="Stad" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.ColumnSpan="3"/>
+                    <TextBox Text="{Binding InsertCity, Mode=TwoWay}" Grid.Row="1" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<Label Content="Adres" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="3"/>
+                    <TextBox Text="{Binding InsertAdres, Mode=TwoWay}" Grid.Row="3" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<Label Content="Telefoon" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="3"/>
+                    <TextBox Text="{Binding InsertPhone, Mode=TwoWay}" Grid.Row="5" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<Label Content="GSM" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="3"/>
+                    <TextBox Text="{Binding InsertCellphone, Mode=TwoWay}" Grid.Row="7" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<Button Command="{Binding InsertStaff}" Content="Voeg toe" Grid.ColumnSpan="5" Grid.Column="8" Grid.Row="8"/>
+        		</Grid>
+        	</TabItem>
+        </TabControl>
+        <Button Content="X" Grid.Column="9" Grid.Row="3" Background="#FFC95656" Foreground="White" Margin="5"/>
+    </Grid>
+</UserControl>
