@@ -60,7 +60,7 @@
         <Label Content="Aantal" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="18" Grid.ColumnSpan="2" Grid.Row="6" Margin="5"/>
         <TextBox Grid.Row="6" Grid.Column="20" TextWrapping="Wrap" Grid.ColumnSpan="2" Margin="5" VerticalContentAlignment="Center"/>
         <ComboBox Grid.ColumnSpan="4" Grid.Column="20" Grid.Row="7" Margin="5"/>
-        <Button Content="+" Grid.Column="22" Grid.Row="6" Background="#FF83D495" FontWeight="Bold" FontSize="21.333" Foreground="White" Margin="5"/>
+        <Button Content="+" Grid.Column="22" Grid.Row="6" FontWeight="Bold" FontSize="21.333" Foreground="White" Margin="5" Background="#FF70D186"/>
         <Button Content="-" Grid.Column="23" Grid.Row="6" Background="#FFD66631" FontWeight="Bold" FontSize="21.333" Foreground="White" Margin="5"/>
         <ListBox Grid.ColumnSpan="6" Grid.Column="18" Grid.Row="8" Grid.RowSpan="3" Margin="5"/>
         <Button Content="Reserveer" Grid.Column="20" Grid.ColumnSpan="4" Grid.Row="11" Margin="5"/>

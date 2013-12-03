@@ -3,5 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
+        <ResourceDictionary Source="win8.xaml"/>
+
+        
     </Application.Resources>
 </Application>

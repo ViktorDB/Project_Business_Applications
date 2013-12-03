@@ -1,10 +1,12 @@
-﻿using MVVMProjectKlas.Model;
+﻿using GalaSoft.MvvmLight.Command;
+using MVVMProjectKlas.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MVVMProjectKlas.ViewModel
 {
@@ -68,6 +70,94 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
+        //property om het geselecteed genre op te halen
+        private Genre _selectedGenre;
+        public Genre SelectedGenre
+        {
+            get
+            {
+                return _selectedGenre;
+            }
+            set
+            {
+                _selectedGenre = value; OnPropertyChanged("SelectedGenre");
+            }
+        }
+
+        private Genre _selectedGenreListbox;
+        public Genre SelectedGenreListbox
+        {
+            get
+            {
+                return _selectedGenreListbox;
+            }
+            set
+            {
+                _selectedGenreListbox = value; OnPropertyChanged("SelectedGenreListbox");
+            }
+        }
+                
+
+        //Genre Toevoegen aan band
+        public ICommand AddGenreToBand
+        {
+            get
+            {
+                return new RelayCommand(addGenreToBand);
+            }
+        }
+
+        private void addGenreToBand()
+        {
+            if (SelectedBand.Genres.Where(Genres => Genres.ID == SelectedGenre.ID).Any() == false)
+            {
+                SelectedBand.Genres.Add(SelectedGenre);
+            }          
+        }
+
+        //Genre Verwijderen van band
+        public ICommand DeleteGenreFromBand
+        {
+            get
+            {
+                return new RelayCommand(deleteGenreFromBand);
+            }
+        }
+
+        private void deleteGenreFromBand()
+        {
+                SelectedBand.Genres.Remove(SelectedGenreListbox);
+        }
+
+        //Band wijzigen
+        public ICommand UpdateBand
+        {
+            get
+            {
+                return new RelayCommand(updateBand);
+            }
+        }
+
+        private void updateBand()
+        {
+            ObservableCollection<String> GenreIdGetallen = new ObservableCollection<string>();
+            foreach(Genre genre in SelectedBand.Genres)
+            {
+                string getal = genre.ID;
+                GenreIdGetallen.Add(getal);
+            }
+
+            
+            Band b = new Band() { ID = SelectedBand.ID, Description = SelectedBand.Description, Name = SelectedBand.Name, Picture = "ImageSource", Facebook = SelectedBand.Facebook, Twitter = SelectedBand.Facebook, GenreGetallen = GenreIdGetallen, StandardGenreGetal = 1 };
+            Console.WriteLine(Band.UpdateBand(b));
+
+            Console.WriteLine(Band.DeleteAllBandGenres(b));
+
+            foreach (string genreGetal in GenreIdGetallen)
+            {
+                Console.WriteLine(Band.UpdateBandGenre(b, genreGetal));
+            }
+        }
 
 
     }
