@@ -82,6 +82,16 @@ namespace MVVMProjectKlas.Model
             get { return standardGenreGetal; }
             set { standardGenreGetal = value; }
         }
+
+        private int lastID;
+
+        public int LastID
+        {
+            get { return lastID; }
+            set { lastID = value; }
+        }
+
+        
         
 
 
@@ -249,6 +259,106 @@ namespace MVVMProjectKlas.Model
             return affected;
         }
 
+        public static int InsertBand(Band b)
+        {
+            string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
+            string connectionstring = ConfigurationManager.ConnectionStrings["db_EventManager"].ConnectionString;
+
+            DbConnection con = DbProviderFactories.GetFactory(provider).CreateConnection();
+            con.ConnectionString = connectionstring;
+            con.Open();
+
+            DbCommand command = DbProviderFactories.GetFactory(provider).CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.Connection = con;
+
+            DbParameter par = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par.ParameterName = "Name";
+            par.Value = b.Name;
+            command.Parameters.Add(par);
+
+            DbParameter par2 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par2.ParameterName = "Description";
+            par2.Value = b.Description;
+            command.Parameters.Add(par2);
+
+            DbParameter par3 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par3.ParameterName = "Twitter";
+            par3.Value = b.Twitter;
+            command.Parameters.Add(par3);
+
+            DbParameter par4 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par4.ParameterName = "Facebook";
+            par4.Value = b.Facebook;
+            command.Parameters.Add(par4);
+
+            DbParameter par5 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par5.ParameterName = "Picture";
+            par5.Value = b.Picture;
+            command.Parameters.Add(par5);
+
+            DbParameter par7 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par7.ParameterName = "Genres";
+            par7.Value = b.StandardGenreGetal;
+            command.Parameters.Add(par7);
+
+
+            command.CommandText = "INSERT INTO Band VALUES (@Name, @Picture, @Description, @Twitter, @Facebook, @Genres)";
+            int affected = command.ExecuteNonQuery();
+            
+            con.Close();
+
+            return affected;
+
+        }
+
+        public static string laatsteID = "";
+
+        public static String GetLastRowId()
+        {
+            String sSQL = "SELECT * FROM Band WHERE ID = (select MAX(ID) FROM Band)";
+            DbDataReader reader = Database.GetData(sSQL);
+            while (reader.Read())
+            {
+
+                laatsteID = reader["ID"].ToString();
+
+            }
+
+            return laatsteID;
+        }
+
+        public static int InsertBandGenre(Band b, String genreGetal)
+        {
+            string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
+            string connectionstring = ConfigurationManager.ConnectionStrings["db_EventManager"].ConnectionString;
+
+            DbConnection con = DbProviderFactories.GetFactory(provider).CreateConnection();
+            con.ConnectionString = connectionstring;
+            con.Open();
+
+            DbCommand command = DbProviderFactories.GetFactory(provider).CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.Connection = con;
+
+            DbParameter par1 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par1.ParameterName = "BandID";
+            par1.Value = laatsteID;
+            command.Parameters.Add(par1);
+
+            DbParameter par2 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par2.ParameterName = "GenreID";
+            par2.Value = genreGetal;
+            command.Parameters.Add(par2);
+
+
+            command.CommandText = "INSERT INTO Band_Genre VALUES (@BandID, @GenreID)";
+            int affected = command.ExecuteNonQuery();
+
+            con.Close();
+
+            return affected;
+        }
 
     }
 }
