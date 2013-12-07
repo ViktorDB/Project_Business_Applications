@@ -26,7 +26,7 @@ namespace MVVMProjectKlas.Model
             set { name = value; }
         }
 
-        //methode om bands uit de database te gaan ophalen
+        //methode om contactpersoontypes uit de database te gaan ophalen
 
         public static ObservableCollection<ContactpersonType> GetContactpersonTypes()
         {

@@ -14,7 +14,6 @@ namespace MVVMProjectKlas.ViewModel
     {
         //properties voor inserten
 
-
         public string Name
         {
             get { return "Staff"; }
@@ -204,6 +203,21 @@ namespace MVVMProjectKlas.ViewModel
         {
             Contactperson c = new Contactperson() { ID = SelectedStaff.ID, Name = SelectedStaff.Name, Company = SelectedStaff.Company, GetalType = Convert.ToInt32(SelectedStaff.JobRole.ID), City = SelectedStaff.City, Email = SelectedStaff.Email, Phone = SelectedStaff.Phone, Cellphone = SelectedStaff.Cellphone, Adres = SelectedStaff.Adres };
             Console.WriteLine(Contactperson.UpdateContactperson(c));
+        }
+
+        //Contactpersoon wijzigen
+        public ICommand DeleteStaff
+        {
+            get
+            {
+                return new RelayCommand(deleteStaff);
+            }
+        }
+
+        private void deleteStaff()
+        {
+            Contactperson c = new Contactperson() { ID = SelectedStaff.ID, Name = SelectedStaff.Name, Company = SelectedStaff.Company, GetalType = Convert.ToInt32(SelectedStaff.JobRole.ID), City = SelectedStaff.City, Email = SelectedStaff.Email, Phone = SelectedStaff.Phone, Cellphone = SelectedStaff.Cellphone, Adres = SelectedStaff.Adres };
+            Console.WriteLine(Contactperson.DeleteContactperson(c));
         }
 
     }

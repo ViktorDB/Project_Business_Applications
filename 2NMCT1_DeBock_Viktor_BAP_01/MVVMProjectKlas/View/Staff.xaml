@@ -165,6 +165,6 @@
         		</Grid>
         	</TabItem>
         </TabControl>
-        <Button Content="X" Grid.Column="9" Grid.Row="3" Background="#FFC95656" Foreground="White" Margin="5"/>
+        <Button Command="{Binding DeleteStaff}" Content="X" Grid.Column="9" Grid.Row="3" Background="#FFC95656" Foreground="White" Margin="5"/>
     </Grid>
 </UserControl>

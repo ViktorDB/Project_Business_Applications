@@ -266,6 +266,33 @@ namespace MVVMProjectKlas.Model
             return affected;
 
         }
+
+        public static int DeleteContactperson(Contactperson c)
+        {
+            string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
+            string connectionstring = ConfigurationManager.ConnectionStrings["db_EventManager"].ConnectionString;
+
+            DbConnection con = DbProviderFactories.GetFactory(provider).CreateConnection();
+            con.ConnectionString = connectionstring;
+            con.Open();
+
+            DbCommand command = DbProviderFactories.GetFactory(provider).CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.Connection = con;
+
+            DbParameter par = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par.ParameterName = "ID";
+            par.Value = c.ID;
+            command.Parameters.Add(par);
+
+            command.CommandText = "DELETE FROM Contactperson WHERE ID = @ID";
+            int affected = command.ExecuteNonQuery();
+
+            con.Close();
+
+            return affected;
+
+        }
         
     }
 }
