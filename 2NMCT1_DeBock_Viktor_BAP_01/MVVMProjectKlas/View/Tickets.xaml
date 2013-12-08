@@ -49,21 +49,41 @@
             <RowDefinition Height="45*"/>
         </Grid.RowDefinitions>
         <Label Content="Gereserveerde Tickets" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="5" Grid.Column="1" Margin="0,0,21.4,0"/>
-        <DataGrid Grid.ColumnSpan="9" Grid.Row="3" Grid.RowSpan="9" Grid.Column="1" IsEnabled="False" Margin="5"/>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Tickets, Mode=TwoWay}" RowHeaderWidth="0" IsReadOnly="True" CanUserAddRows="False" Grid.ColumnSpan="9" Grid.Row="3" Grid.RowSpan="9" Grid.Column="1" IsEnabled="True" Margin="5">
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                   Color="#105260"/>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Aantal" Binding="{Binding Amount}" Width="1.5*"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding TicketTypeNaam}" Width="3*"/>
+                <DataGridTextColumn Header="Naam" Binding="{Binding Ticketholder}" Width="4*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding TicketholderEmail}" Width="5*"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Label Content="Beschikbare tickets" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="5" Grid.Column="11"/>
         <DataGrid Grid.ColumnSpan="6" Grid.Row="3" Grid.RowSpan="9" Grid.Column="11" Margin="5"/>
         <Label Content="Reserveer" Margin="12.4,39.956,43.6,40.689" Grid.Row="1" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Width="200" Height="50" Grid.ColumnSpan="5" Grid.Column="18" Grid.RowSpan="3"/>
         <Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="18" Grid.ColumnSpan="2" Grid.Row="3" Margin="5"/>
-        <TextBox Grid.Row="3" Grid.Column="20" TextWrapping="Wrap" Grid.ColumnSpan="4" Margin="5" VerticalContentAlignment="Center"/>
+        <TextBox Text="{Binding ReserveerTicketName}" Grid.Row="3" Grid.Column="20" TextWrapping="Wrap" Grid.ColumnSpan="4" Margin="5" VerticalContentAlignment="Center"/>
         <Label Content="E-mail" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="18" Grid.ColumnSpan="2" Grid.Row="4" Margin="5"/>
-        <TextBox Grid.Row="4" Grid.Column="20" TextWrapping="Wrap" Grid.ColumnSpan="4" Margin="5" VerticalContentAlignment="Center"/>
+        <TextBox Text="{Binding ReserveerTicketEmail}" Grid.Row="4" Grid.Column="20" TextWrapping="Wrap" Grid.ColumnSpan="4" Margin="5" VerticalContentAlignment="Center"/>
         <Label Content="Aantal" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="18" Grid.ColumnSpan="2" Grid.Row="6" Margin="5"/>
-        <TextBox Grid.Row="6" Grid.Column="20" TextWrapping="Wrap" Grid.ColumnSpan="2" Margin="5" VerticalContentAlignment="Center"/>
-        <ComboBox ItemsSource="{Binding TicketTypes}" DisplayMemberPath="Name" Grid.ColumnSpan="4" Grid.Column="20" Grid.Row="7" Margin="5"/>
-        <Button Content="+" Grid.Column="22" Grid.Row="6" FontWeight="Bold" FontSize="21.333" Foreground="White" Margin="5" Background="#FF70D186"/>
-        <Button Content="-" Grid.Column="23" Grid.Row="6" Background="#FFD66631" FontWeight="Bold" FontSize="21.333" Foreground="White" Margin="5"/>
-        <ListBox Grid.ColumnSpan="6" Grid.Column="18" Grid.Row="8" Grid.RowSpan="3" Margin="5"/>
-        <Button Content="Reserveer" Grid.Column="20" Grid.ColumnSpan="4" Grid.Row="11" Margin="5"/>
+        <TextBox Text="{Binding ReserveerTicketAantal}" Grid.Row="6" Grid.Column="20" TextWrapping="Wrap" Grid.ColumnSpan="2" Margin="5" VerticalContentAlignment="Center"/>
+        <ComboBox SelectedValue="{Binding ReserveerTicketCombobox}" SelectedItem="{Binding ReserveerTicketCombobox}" ItemsSource="{Binding TicketTypes}" DisplayMemberPath="Name" Grid.ColumnSpan="4" Grid.Column="20" Grid.Row="7" Margin="5"/>
+        <Button Command="{Binding AddTickets}" Content="+" Grid.Column="22" Grid.Row="6" FontWeight="Bold" FontSize="21.333" Foreground="White" Margin="5" Background="#FF70D186"/>
+        <Button Command="{Binding DeleteTickets}" Content="-" Grid.Column="23" Grid.Row="6" Background="#FFD66631" FontWeight="Bold" FontSize="21.333" Foreground="White" Margin="5"/>
+        <DataGrid RowHeaderWidth="0" IsReadOnly="True" CanUserAddRows="False" SelectedItem="{Binding SelectedTicketTypeListbox}" DisplayMemberPath="Name" ItemsSource="{Binding VoorlopigeTicketsLijst, Mode=TwoWay}" Grid.ColumnSpan="6" Grid.Column="18" Grid.Row="8" Grid.RowSpan="3" Margin="5" AutoGenerateColumns="False">
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                   Color="#105260"/>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Aantal" Binding="{Binding AantalTickets}" Width="1*"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Name}" Width="5*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Command="{Binding ReserveerTickets}" Content="Reserveer" Grid.Column="20" Grid.ColumnSpan="4" Grid.Row="11" Margin="5"/>
         <Label Content="Type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="18" Grid.ColumnSpan="2" Grid.Row="7" Margin="5"/>
 
     </Grid>

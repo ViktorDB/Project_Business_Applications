@@ -43,6 +43,15 @@ namespace MVVMProjectKlas.Model
             set { availableTikets = value; }
         }
 
+        private int aantalTickets;
+
+        public int AantalTickets
+        {
+            get { return aantalTickets; }
+            set { aantalTickets = value; }
+        }
+        
+
         //methode om ticketypes uit de database te gaan ophalen
 
         public static ObservableCollection<TicketType> GetTicketTypes()

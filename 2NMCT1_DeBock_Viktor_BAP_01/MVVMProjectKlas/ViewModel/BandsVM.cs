@@ -291,7 +291,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        //Contactpersoon toevoegen
+        //Band toevoegen
         public ICommand InsertBand
         {
             get
