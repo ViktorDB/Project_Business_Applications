@@ -89,7 +89,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        #region insertstage
+        #region insertstage and updatestage
 
         private string insertStageName;
 
@@ -114,6 +114,122 @@ namespace MVVMProjectKlas.ViewModel
             get { return updateStageName; }
             set { updateStageName = value; }
         }
+        #endregion
+
+        #region insertgenre and updategenre
+
+        private string insertGenreName;
+
+        public string InsertGenreName
+        {
+            get { return insertGenreName; }
+            set { insertGenreName = value; }
+        }
+
+        public Genre updateGenreCombobox;
+
+        public Genre UpdateGenreCombobox
+        {
+            get { return updateGenreCombobox; }
+            set { updateGenreCombobox = value; }
+        }
+
+        private string updateGenreName;
+
+        public string UpdateGenreName
+        {
+            get { return updateGenreName; }
+            set { updateGenreName = value; }
+        }
+
+        #endregion
+
+        #region insertstaff and updatestaff
+
+        private string insertStaffName;
+
+        public string InsertStaffName
+        {
+            get { return insertStaffName; }
+            set { insertStaffName = value; }
+        }
+
+        public ContactpersonType updateStaffCombobox;
+
+        public ContactpersonType UpdateStaffCombobox
+        {
+            get { return updateStaffCombobox; }
+            set { updateStaffCombobox = value; }
+        }
+
+        private string updateStaffName;
+
+        public string UpdateStaffName
+        {
+            get { return updateStaffName; }
+            set { updateStaffName = value; }
+        }
+
+        #endregion
+
+        #region insertstaff and updatestaff
+
+        private string insertTicketName;
+
+        public string InsertTicketName
+        {
+            get { return insertTicketName; }
+            set { insertTicketName = value; }
+        }
+
+        private double insertTicketPrice;
+
+        public double InsertTicketPrice
+        {
+            get { return insertTicketPrice; }
+            set { insertTicketPrice = value; }
+        }
+
+        private int insertTicketNumber;
+
+        public int InsertTicketNumber
+        {
+            get { return insertTicketNumber; }
+            set { insertTicketNumber = value; }
+        }
+
+        private TicketType updateTicketCombobox;
+
+        public TicketType UpdateTicketCombobox
+        {
+            get { return updateTicketCombobox; }
+            set { updateTicketCombobox = value; }
+        }
+
+        private string updateTicketName;
+
+        public string UpdateTicketName
+        {
+            get { return updateTicketName; }
+            set { updateTicketName = value; }
+        }
+
+        private double updateTicketPrice;
+
+        public double UpdateTicketPrice
+        {
+            get { return updateTicketPrice; }
+            set { updateTicketPrice = value; }
+        }
+
+        private int updateTicketNumber;
+
+        public int UpdateTicketNumber
+        {
+            get { return updateTicketNumber; }
+            set { updateTicketNumber = value; }
+        }
+
         #endregion
 
         //Stage toevoegen
@@ -146,7 +262,94 @@ namespace MVVMProjectKlas.ViewModel
             Console.WriteLine(Stage.UpdateStage(s));
         }
 
+        //Genre toevoegen
+        public ICommand InsertGenre
+        {
+            get
+            {
+                return new RelayCommand(insertGenre);
+            }
+        }
 
+        private void insertGenre()
+        {
+            Genre g = new Genre() { Name = InsertGenreName };
+            Console.WriteLine(Genre.InsertGenre(g));
+        }
 
+        //Genre wijzigen
+        public ICommand UpdateGenre
+        {
+            get
+            {
+                return new RelayCommand(updateGenre);
+            }
+        }
+
+        private void updateGenre()
+        {
+            Genre g = new Genre() { ID = UpdateGenreCombobox.ID, Name = UpdateGenreName };
+            Console.WriteLine(Genre.UpdateGenre(g));
+        }
+
+        //staff toevoegen
+        public ICommand InsertStaff
+        {
+            get
+            {
+                return new RelayCommand(insertStaff);
+            }
+        }
+
+        private void insertStaff()
+        {
+            ContactpersonType s = new ContactpersonType() { Name = InsertStaffName };
+            Console.WriteLine(ContactpersonType.InsertStaff(s));
+        }
+
+        //staff wijzigen
+        public ICommand UpdateStaff
+        {
+            get
+            {
+                return new RelayCommand(updateStaff);
+            }
+        }
+
+        private void updateStaff()
+        {
+            ContactpersonType c = new ContactpersonType() { ID = UpdateStaffCombobox.ID, Name = UpdateStaffName };
+            Console.WriteLine(ContactpersonType.UpdateStaff(c));
+        }
+
+        //TicketType toevoegen
+        public ICommand InsertTicketType
+        {
+            get
+            {
+                return new RelayCommand(insertTicketType);
+            }
+        }
+
+        private void insertTicketType()
+        {
+            TicketType t = new TicketType() { Name = InsertTicketName, Price = InsertTicketPrice, AvailableTickets = InsertTicketNumber };
+            Console.WriteLine(TicketType.InsertTicketType(t));
+        }
+
+        //TicketType wijzigen
+        public ICommand UpdateTicketType
+        {
+            get
+            {
+                return new RelayCommand(updateTicketType);
+            }
+        }
+
+        private void updateTicketType()
+        {
+            TicketType t = new TicketType() { ID = UpdateTicketCombobox.ID, Name = UpdateTicketName, Price = UpdateTicketPrice, AvailableTickets = UpdateTicketNumber };
+            Console.WriteLine(TicketType.UpdateTicketType(t));
+        }
     }
 }

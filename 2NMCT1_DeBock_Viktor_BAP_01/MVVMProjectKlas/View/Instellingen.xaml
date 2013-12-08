@@ -123,15 +123,15 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1"><Run Language="nl-be" Text="Voeg genre toe"/></TextBlock>
-                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding InsertGenreName}" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
                     <Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="1"/>
-                    <Button Content="Voeg toe" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="1"/>
+                    <Button Command="{Binding InsertGenre}" Content="Voeg toe" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="1"/>
                     <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="1"><Run Language="nl-be" Text="Wijzig genre"/></TextBlock>
-                    <TextBox TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding UpdateGenreName}" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="6" VerticalContentAlignment="Center"/>
                     <Label Content="Nieuwe naam voor genre" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="5"/>
-                    <Button Content="Wijzig" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="8"/>
+                    <Button Command="{Binding UpdateGenre}" Content="Wijzig" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="8"/>
                     <Label Content="Kies het genre" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="3"/>
-                    <ComboBox ItemsSource="{Binding Genres}" DisplayMemberPath="Name" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <ComboBox SelectedItem="{Binding UpdateGenreCombobox}" SelectedValue="{Binding UpdateGenreCombobox.ID}" SelectedValuePath="ID" ItemsSource="{Binding Genres}" DisplayMemberPath="Name" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Staff" HorizontalAlignment="Left" Height="19.96" VerticalAlignment="Top" Width="55.32">
@@ -165,15 +165,15 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"><Run Language="nl-be" Text="Voeg type toe"/></TextBlock>
-                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding InsertStaffName}" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
                     <Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="1"/>
-                    <Button Content="Voeg toe" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="1"/>
+                    <Button Command="{Binding InsertStaff}" Content="Voeg toe" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="1"/>
                     <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="1"><Run Language="nl-be" Text="Wijzig type"/></TextBlock>
-                    <TextBox TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding UpdateStaffName}" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="6" VerticalContentAlignment="Center"/>
                     <Label Content="Nieuwe naam voor type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="5"/>
-                    <Button Content="Wijzig" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="8"/>
+                    <Button Command="{Binding UpdateStaff}" Content="Wijzig" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="8"/>
                     <Label Content="Kies het type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="3"/>
-                    <ComboBox ItemsSource="{Binding ContactPersonTypes}" DisplayMemberPath="Name" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <ComboBox SelectedItem="{Binding UpdateStaffCombobox}" SelectedValue="{Binding UpdateStaffCombobox.ID}" SelectedValuePath="ID" ItemsSource="{Binding ContactPersonTypes}" DisplayMemberPath="Name" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Tickets" HorizontalAlignment="Left" Height="19.96" VerticalAlignment="Top" Width="55.32">
@@ -207,22 +207,22 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Height="29" Margin="0,0.997,33.45,5.173" TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1"><Run Language="nl-be" Text="Voeg type toe"/></TextBlock>
-                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding InsertTicketName}" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
                     <Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="1"/>
-                    <Button Content="Voeg toe" Grid.ColumnSpan="2" Grid.Row="10" Grid.Column="1"/>
+                    <Button Command="{Binding InsertTicketType}" Content="Voeg toe" Grid.ColumnSpan="2" Grid.Row="10" Grid.Column="1"/>
                     <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" Foreground="#FF398A97" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="1"><Run Language="nl-be" Text="Wijzig type"/></TextBlock>
-                    <Button Content="Wijzig" Grid.ColumnSpan="2" Grid.Column="8" Grid.Row="8"/>
+                    <Button Command="{Binding UpdateTicketType}" Content="Wijzig" Grid.ColumnSpan="2" Grid.Column="8" Grid.Row="8"/>
                     <Label Content="Kies het type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="3"/>
-                    <ComboBox ItemsSource="{Binding TicketTypes}" DisplayMemberPath="Name" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center"/>
-                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <ComboBox SelectedItem="{Binding UpdateTicketCombobox}" SelectedValue="{Binding UpdateTicketCombobox.ID}" SelectedValuePath="ID" ItemsSource="{Binding TicketTypes}" DisplayMemberPath="Name" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding InsertTicketPrice}" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="6" VerticalContentAlignment="Center"/>
                     <Label Content="Prijs" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="5" Grid.Column="1"/>
-                    <TextBox Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="8" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding InsertTicketNumber}" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="8" VerticalContentAlignment="Center"/>
                     <Label Content="Aantal tickets" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Row="7" Grid.Column="1"/>
-                    <TextBox Grid.Column="5" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding UpdateTicketName}" Grid.Column="5" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="6" VerticalContentAlignment="Center"/>
                     <Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="5"/>
-                    <TextBox Grid.Column="8" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="6" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding UpdateTicketPrice}" Grid.Column="8" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="6" VerticalContentAlignment="Center"/>
                     <Label Content="Prijs" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="8" Grid.Row="5"/>
-                    <TextBox Grid.Column="8" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding UpdateTicketNumber}" Grid.Column="8" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
                     <Label Content="Aantal tickets" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="2" Grid.Column="8" Grid.Row="3"/>
                 </Grid>
 

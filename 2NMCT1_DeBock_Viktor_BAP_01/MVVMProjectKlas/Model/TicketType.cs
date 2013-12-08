@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
@@ -62,6 +63,85 @@ namespace MVVMProjectKlas.Model
             }
 
             return lijst;
+        }
+
+        public static int InsertTicketType(TicketType t)
+        {
+            string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
+            string connectionstring = ConfigurationManager.ConnectionStrings["db_EventManager"].ConnectionString;
+
+            DbConnection con = DbProviderFactories.GetFactory(provider).CreateConnection();
+            con.ConnectionString = connectionstring;
+            con.Open();
+
+            DbCommand command = DbProviderFactories.GetFactory(provider).CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.Connection = con;
+
+            DbParameter par = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par.ParameterName = "Name";
+            par.Value = t.Name;
+            command.Parameters.Add(par);
+
+            DbParameter par1 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par1.ParameterName = "Price";
+            par1.Value = t.Price;
+            command.Parameters.Add(par1);
+
+            DbParameter par2 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par2.ParameterName = "AvailableTickets";
+            par2.Value = t.AvailableTickets;
+            command.Parameters.Add(par2);
+
+            command.CommandText = "INSERT INTO TicketType VALUES (@Name, @Price, @AvailableTickets)";
+            int affected = command.ExecuteNonQuery();
+
+            con.Close();
+
+            return affected;
+
+        }
+
+        public static int UpdateTicketType(TicketType s)
+        {
+            string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
+            string connectionstring = ConfigurationManager.ConnectionStrings["db_EventManager"].ConnectionString;
+
+            DbConnection con = DbProviderFactories.GetFactory(provider).CreateConnection();
+            con.ConnectionString = connectionstring;
+            con.Open();
+
+            DbCommand command = DbProviderFactories.GetFactory(provider).CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.Connection = con;
+
+            DbParameter par = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par.ParameterName = "ID";
+            par.Value = s.ID;
+            command.Parameters.Add(par);
+
+            DbParameter par1 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par1.ParameterName = "Name";
+            par1.Value = s.Name;
+            command.Parameters.Add(par1);
+
+            DbParameter par2 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par2.ParameterName = "Price";
+            par2.Value = s.Price;
+            command.Parameters.Add(par2);
+
+            DbParameter par3 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par3.ParameterName = "AvailableTickets";
+            par3.Value = s.AvailableTickets;
+            command.Parameters.Add(par3);
+
+            command.CommandText = "UPDATE TicketType SET Name = @Name, Price = @Price, AvailableTickets = @AvailableTickets WHERE ID = @ID";
+            int affected = command.ExecuteNonQuery();
+
+            con.Close();
+
+            return affected;
+
         }
         
     }
