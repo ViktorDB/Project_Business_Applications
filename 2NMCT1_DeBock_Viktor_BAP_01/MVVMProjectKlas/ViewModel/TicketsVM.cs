@@ -165,13 +165,14 @@ namespace MVVMProjectKlas.ViewModel
 
             for (int i = 0; i < VoorlopigeTicketsLijst.Count(); i++ )
             {
-                Ticket ReservatieLijn = new Ticket() { Ticketholder = ReserveerTicketName, Amount = VoorlopigeTicketsLijst[i].AantalTickets, TicketholderEmail = ReserveerTicketEmail, TicketTypeID = VoorlopigeTicketsLijst[i].ID, TicketTypeNaam = VoorlopigeTicketsLijst[i].Name };
+                Ticket ReservatieLijn = new Ticket() { Ticketholder = ReserveerTicketName, Amount = VoorlopigeTicketsLijst[i].AantalTickets, TicketholderEmail = ReserveerTicketEmail, TicketTypeID = VoorlopigeTicketsLijst[i].ID, TicketTypeNaam = VoorlopigeTicketsLijst[i].Name, AvailableTicketsForType = VoorlopigeTicketsLijst[i].AvailableTickets };
                 GereserveerdeTickets.Add(ReservatieLijn);
+                Console.WriteLine(TicketType.UpdateAvailableTickets(ReservatieLijn));
             }
 
             foreach (Ticket ticketje in GereserveerdeTickets)
             {
-                Console.WriteLine(Ticket.InsertTicket(ticketje));
+                Console.WriteLine(Ticket.InsertTicket(ticketje));    
             }
         }
 

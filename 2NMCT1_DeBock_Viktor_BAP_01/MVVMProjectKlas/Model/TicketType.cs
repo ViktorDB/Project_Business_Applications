@@ -152,6 +152,40 @@ namespace MVVMProjectKlas.Model
             return affected;
 
         }
+
+        public static int UpdateAvailableTickets(Ticket s)
+        {
+            string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
+            string connectionstring = ConfigurationManager.ConnectionStrings["db_EventManager"].ConnectionString;
+
+            DbConnection con = DbProviderFactories.GetFactory(provider).CreateConnection();
+            con.ConnectionString = connectionstring;
+            con.Open();
+
+            DbCommand command = DbProviderFactories.GetFactory(provider).CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.Connection = con;
+
+            DbParameter par = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par.ParameterName = "ID";
+            par.Value = s.TicketTypeID;
+            command.Parameters.Add(par);
+
+            int aantal = s.AvailableTicketsForType - s.Amount;
+
+            DbParameter par3 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par3.ParameterName = "AvailableTickets";
+            par3.Value = aantal;
+            command.Parameters.Add(par3);
+
+            command.CommandText = "UPDATE TicketType SET AvailableTickets = @AvailableTickets WHERE ID = @ID";
+            int affected = command.ExecuteNonQuery();
+
+            con.Close();
+
+            return affected;
+
+        }
         
     }
 }

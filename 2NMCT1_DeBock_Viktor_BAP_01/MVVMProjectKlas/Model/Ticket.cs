@@ -67,6 +67,14 @@ namespace MVVMProjectKlas.Model
             set { ticketTypeID = value; }
         }
 
+        private int availableTicketsForType;
+
+        public int AvailableTicketsForType
+        {
+            get { return availableTicketsForType; }
+            set { availableTicketsForType = value; }
+        }
+        
 
         //methode om tickets uit de database te gaan ophalen
 
