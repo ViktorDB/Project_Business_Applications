@@ -39,8 +39,8 @@ namespace MVVMProjectKlas.Model
             {
                 Stage aNieuw = new Stage();
 
-                aNieuw.ID = reader["ID"].ToString();
-                aNieuw.Name = reader["Name"].ToString();
+                aNieuw.ID = reader["StageID"].ToString();
+                aNieuw.Name = reader["StageName"].ToString();
                 lijst.Add(aNieuw);
             }
 
@@ -97,7 +97,7 @@ namespace MVVMProjectKlas.Model
             par1.Value = s.Name;
             command.Parameters.Add(par1);
 
-            command.CommandText = "UPDATE Stage SET Name = @Name WHERE ID = @ID";
+            command.CommandText = "UPDATE Stage SET StageName = @Name WHERE StageID = @ID";
             int affected = command.ExecuteNonQuery();
 
             con.Close();

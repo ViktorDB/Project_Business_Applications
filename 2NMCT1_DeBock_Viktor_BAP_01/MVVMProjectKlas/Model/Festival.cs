@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
@@ -65,7 +66,48 @@ namespace MVVMProjectKlas.Model
             return lijst;
         }
 
-        
+        // festival updaten
+        public static int UpdateFestival(Festival b)
+        {
+            string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
+            string connectionstring = ConfigurationManager.ConnectionStrings["db_EventManager"].ConnectionString;
+
+            DbConnection con = DbProviderFactories.GetFactory(provider).CreateConnection();
+            con.ConnectionString = connectionstring;
+            con.Open();
+
+            DbCommand command = DbProviderFactories.GetFactory(provider).CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.Connection = con;
+
+            DbParameter par = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par.ParameterName = "FestivalNaam";
+            par.Value = b.FestivalNaam;
+            command.Parameters.Add(par);
+
+            DbParameter par2 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par2.ParameterName = "FestivalPlaats";
+            par2.Value = b.FestivalPlaats;
+            command.Parameters.Add(par2);
+
+            DbParameter par3 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par3.ParameterName = "StartData";
+            par3.Value = b.StartData;
+            command.Parameters.Add(par3);
+
+            DbParameter par4 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            par4.ParameterName = "EndData";
+            par4.Value = b.EndData;
+            command.Parameters.Add(par4);
+
+            command.CommandText = "UPDATE Festival SET Naam=@FestivalNaam, Plaats=@FestivalPlaats, StartDate=@StartData, EndDate=@EndData";
+            int affected = command.ExecuteNonQuery();
+
+            con.Close();
+
+            return affected;
+
+        }
 
     }
 }

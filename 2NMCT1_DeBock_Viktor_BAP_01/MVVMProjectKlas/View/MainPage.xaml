@@ -59,9 +59,10 @@
         <Label Content="Festival datum" Grid.Row="6" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="4" Grid.Column="1"/>
         <Label Content="Begindatum" Grid.Row="7" Foreground="#FF398A97" FontSize="13.333" Grid.ColumnSpan="3" Grid.Column="1"/>
         <Label Content="Einddatum&#xD;&#xA;" Grid.Row="7" Foreground="#FF398A97" FontSize="13.333" Grid.Column="6" Height="30" Grid.ColumnSpan="4"/>
-        <DatePicker SelectedDate="{Binding Festivals/StartData}" Grid.Row="8" Grid.RowSpan="4" Grid.ColumnSpan="4" Grid.Column="1" Name="DatePickerBegin"/>
-        <DatePicker SelectedDate="{Binding Festivals/EndData}" Grid.Column="6" Grid.Row="8" Grid.RowSpan="4" Grid.ColumnSpan="4" Name="DatePickerEnd"/>
+        <DatePicker SelectedDate="{Binding Festivals/StartData}" Grid.Row="8" Grid.RowSpan="3" Grid.ColumnSpan="4" Grid.Column="1" Name="DatePickerBegin" Margin="0" Height="91.75" VerticalAlignment="Top"/>
+        <DatePicker SelectedDate="{Binding Festivals/EndData}" Grid.Column="6" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="4" Name="DatePickerEnd" Margin="0"/>
         <Label Content="Agenda" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.Column="12" Grid.ColumnSpan="8"/>
         <TextBox Grid.Row="3" Grid.Column="12" TextWrapping="Wrap" Grid.ColumnSpan="12" Grid.RowSpan="9"/>
+        <Button Command="{Binding UpdateFestival}" Content="Wijzig" Grid.Column="1" Grid.Row="11" Margin="1,5" Grid.ColumnSpan="4"/>
     </Grid>
 </UserControl>

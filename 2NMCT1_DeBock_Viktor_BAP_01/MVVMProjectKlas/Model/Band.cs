@@ -108,10 +108,10 @@ namespace MVVMProjectKlas.Model
             {
                 Band aNieuw = new Band();
 
-                aNieuw.ID = reader["ID"].ToString();
-                int NieuwId = Convert.ToInt32(reader["ID"]);
+                aNieuw.ID = reader["IDBand"].ToString();
+                int NieuwId = Convert.ToInt32(reader["IDBand"]);
                 aNieuw.Description = reader["Description"].ToString();
-                aNieuw.Name = reader["Name"].ToString();
+                aNieuw.Name = reader["BandName"].ToString();
                 aNieuw.Picture = reader["Picture"].ToString();
                 aNieuw.Facebook = reader["Facebook"].ToString();
                 aNieuw.Twitter = reader["Twitter"].ToString();
@@ -121,7 +121,7 @@ namespace MVVMProjectKlas.Model
                 //SELECT * FROM Band INNER JOIN Band_Genre ON Band.ID = Band_Genre.BandID INNER JOIN Genre ON Genre.ID = Band_Genre.GenreID WHERE BandID = {0}
 
 
-                String sSQLJOIN = "SELECT * FROM Band INNER JOIN Band_Genre ON Band.ID = Band_Genre.BandID INNER JOIN Genre ON Genre.ID = Band_Genre.GenreID WHERE BandID = {0}";
+                String sSQLJOIN = "SELECT * FROM Band INNER JOIN Band_Genre ON Band.IDBand = Band_Genre.BandID INNER JOIN Genre ON Genre.ID = Band_Genre.GenreID WHERE BandID = {0}";
                 string data = Convert.ToString(NieuwId);
                 string sSQLGenre = string.Format(sSQLJOIN, data);
                 DbDataReader readerGenre = Database.GetData(sSQLGenre);
@@ -192,7 +192,7 @@ namespace MVVMProjectKlas.Model
             command.Parameters.Add(par7);
 
 
-            command.CommandText = "UPDATE Band SET Name=@Name, Description=@Description, Twitter=@Twitter, Facebook=@Facebook, Picture=@Picture, Genres=@Genres WHERE ID = @ID";
+            command.CommandText = "UPDATE Band SET BandName=@Name, Description=@Description, Twitter=@Twitter, Facebook=@Facebook, Picture=@Picture, Genres=@Genres WHERE IDBand = @ID";
             int affected = command.ExecuteNonQuery();
 
             con.Close();
@@ -316,12 +316,12 @@ namespace MVVMProjectKlas.Model
 
         public static String GetLastRowId()
         {
-            String sSQL = "SELECT * FROM Band WHERE ID = (select MAX(ID) FROM Band)";
+            String sSQL = "SELECT * FROM Band WHERE IDBand = (select MAX(IDBand) FROM Band)";
             DbDataReader reader = Database.GetData(sSQL);
             while (reader.Read())
             {
 
-                laatsteID = reader["ID"].ToString();
+                laatsteID = reader["IDBand"].ToString();
 
             }
 

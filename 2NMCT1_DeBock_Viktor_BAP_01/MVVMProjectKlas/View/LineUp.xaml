@@ -51,25 +51,103 @@
         </Grid.RowDefinitions>
         <Label Content="Kies de dag" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>
         <Label Content="Line-Up" Grid.Row="4" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="4" Grid.Column="1"/>
-        <Label Content="Line-Up bewerken" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.Column="14" Grid.ColumnSpan="4"/>
-        <ComboBox Grid.ColumnSpan="8" Grid.Row="3" Grid.Column="1" Margin="5" VerticalContentAlignment="Center"/>
-        <DataGrid Grid.ColumnSpan="11" Grid.Row="5" Grid.RowSpan="7" Grid.Column="1" IsEnabled="False" Margin="5"/>
-        <Label Content="Kies de dag" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="15" Grid.ColumnSpan="3" Margin="5"/>
-        <Label Content="Kies de stage" Grid.Row="4" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="15" Grid.ColumnSpan="3" Margin="5"/>
-        <Label Content="Huidige line-up" Grid.Row="5" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="15" Grid.ColumnSpan="3" Margin="5"/>
-        <ComboBox Grid.ColumnSpan="6" Grid.Column="18" Grid.Row="3" Margin="5" VerticalContentAlignment="Center">
-        </ComboBox>
-        <ComboBox Grid.ColumnSpan="6" Grid.Column="18" Grid.Row="4" Margin="5" VerticalContentAlignment="Center"/>
-        <DataGrid Grid.ColumnSpan="9" Grid.Row="6" Grid.Column="15" Grid.RowSpan="3" Margin="5"/>
-        <Button Content="X" Grid.Column="23" Grid.Row="5" Background="#FFC95656" Foreground="White" Margin="5"/>
-        <Label Content="Bands" Grid.Row="9" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="15" Grid.ColumnSpan="3" Margin="5"/>
-        <ComboBox Grid.ColumnSpan="6" Grid.Column="18" Grid.Row="9" Margin="5" VerticalContentAlignment="Center"/>
-        <Label Content="tijd" Grid.Row="10" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="15" Grid.ColumnSpan="3" Margin="5"/>
-        <ComboBox Grid.Column="19" Grid.Row="10" Grid.ColumnSpan="2" Margin="5" VerticalContentAlignment="Center"/>
-        <ComboBox Grid.Column="22" Grid.Row="10" Grid.ColumnSpan="2" Margin="5" VerticalContentAlignment="Center"/>
-        <Label Content="van" Grid.Row="10" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="18" Margin="5"/>
-        <Label Content="tot" Grid.Row="10" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="21" Margin="5"/>
-        <Button Content="Wijzig" Grid.Column="16" Grid.ColumnSpan="4" Grid.Row="11" Margin="5"/>
-        <Button Content="Voeg toe" Grid.Column="20" Grid.Row="11" Grid.ColumnSpan="4" Margin="5"/>
+        <ComboBox Name="DataCombobox" SelectedItem="{Binding SelectedDeleteLineUpDag, StringFormat='{}{0:dd/MM/yyyy}'}" ItemsSource="{Binding DiffLineUpDagen}" Grid.ColumnSpan="4" Grid.Row="3" Grid.Column="1" Margin="5" VerticalContentAlignment="Center"/>
+        <DataGrid Name="DataGridLineUp" SelectedItem="{Binding SelectedItemLineUp}" ItemsSource="{Binding LineUps}" AutoGenerateColumns="False" RowHeaderWidth="0" IsReadOnly="True" CanUserAddRows="False" SelectionMode="Single" Grid.ColumnSpan="11" Grid.Row="5" Grid.RowSpan="7" Grid.Column="1" IsEnabled="True" Margin="5">
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                   Color="#105260"/>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" Width="2.5*"/>
+                <DataGridTextColumn Header="Band" Binding="{Binding CBand.Name}" Width="3*"/>
+                <DataGridTextColumn Header="Stage" Binding="{Binding CStage.Name}" Width="5*"/>
+                <DataGridTextColumn Header="From" Binding="{Binding From}" Width="2*"/>
+                <DataGridTextColumn Header="Until" Binding="{Binding Until}" Width="2*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Command="{Binding AddLineUpDag}" Content="+" Grid.Column="10" Grid.Row="3" Background="#FFC95656" Foreground="White" Margin="5.543,5.334,4.457,4.665" FontSize="18.667"/>
+        <Button Command="{Binding DeleteLineUpDag}" Content="-" Grid.Column="11" Grid.Row="3" Background="#FFC95656" Foreground="White" Margin="5.501,5.334,4.499,4.665" FontSize="18.667"/>
+        <DatePicker SelectedDate="{Binding SelectedAddLineUpDag, StringFormat='{}{0:dd.MM.yyyy}'}" Grid.ColumnSpan="4" Grid.Column="6" HorizontalAlignment="Left" Height="36" Margin="5,5,0,0" Grid.Row="3" VerticalAlignment="Top" Width="191"/>
+        <TabControl Grid.ColumnSpan="11" Grid.Column="13" HorizontalAlignment="Left" Height="432" Margin="49.4,23.417,0,0" Grid.Row="2" Grid.RowSpan="10" VerticalAlignment="Top" Width="513">
+            <TabItem Header="Info">
+                <Grid Background="#FFE5E5E5" Margin="0,0,3,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Kies de dag" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="2,4.167,6.5,5.143" Grid.ColumnSpan="3"/>
+                    <Label Content="Kies de stage" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="2,4.857,6.5,4.454" Grid.ColumnSpan="3" Grid.Row="1"/>
+                    <ComboBox SelectedValue="{Binding SelectedItemLineUp.CStage.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedItemLineUp.Date}" ItemsSource="{Binding DiffLineUpDagen}" Grid.Column="3" Margin="3.5,4.167,3.5,5.143" VerticalContentAlignment="Center" Grid.ColumnSpan="6"/>
+                    <ComboBox SelectedValue="{Binding SelectedItemLineUp.CStage.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedItemLineUp.CStage.Name}" ItemsSource="{Binding Stages}" DisplayMemberPath="Name" Grid.Column="3" Margin="3.5,4.857,3.5,4.454" VerticalContentAlignment="Center" Grid.ColumnSpan="6" Grid.Row="1"/>
+                    <Label Content="Bands" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="2,4.88,6.5,3.763" Grid.ColumnSpan="3"/>
+                    <ComboBox SelectedValue="{Binding SelectedItemLineUp.CBand.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedItemLineUp.CBand.Name}" ItemsSource="{Binding Bands}" DisplayMemberPath="Name" Grid.Column="3" Grid.Row="2" Margin="3.5,4.88,3.5,3.763" VerticalContentAlignment="Center" Grid.ColumnSpan="6"/>
+                    <Label Content="tijd" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="2,5.57,6.5,3.073" Grid.ColumnSpan="3"/>
+                    <TextBox Text="{Binding SelectedItemLineUp.From}" Grid.Column="4" Grid.Row="3" Margin="4,5.57,5,3.073" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    <TextBox Text="{Binding SelectedItemLineUp.Until}" Grid.Column="7" Grid.Row="3" Margin="5.5,5.57,3.5,3.073" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    <Label Content="van" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="3" Margin="3.5,5.57,6,3.073"/>
+                    <Label Content="tot" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="6" Margin="5,5.57,4.5,3.073"/>
+                    <Button Command="{Binding WijzigLineUp}" Content="Wijzig" Grid.Column="5" Grid.Row="8" Margin="5.7,5.686,2.3,3.623" Grid.ColumnSpan="4"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="+">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Kies de dag" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="2,4.167,6.5,5.143" Grid.ColumnSpan="3"/>
+                    <Label Content="Kies de stage" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="2,4.857,6.5,4.454" Grid.ColumnSpan="3" Grid.Row="1"/>
+                    <ComboBox SelectedItem="{Binding InsertDate}" ItemsSource="{Binding DiffLineUpDagen}" Grid.Column="3" Margin="3.5,4.167,3.5,5.143" VerticalContentAlignment="Center" Grid.ColumnSpan="6"/>
+                    <ComboBox SelectedItem="{Binding InsertStage}" ItemsSource="{Binding Stages}" DisplayMemberPath="Name" Grid.Column="3" Margin="3.5,4.857,3.5,4.454" VerticalContentAlignment="Center" Grid.ColumnSpan="6" Grid.Row="1"/>
+                    <Label Content="Bands" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="2,4.88,6.5,3.763" Grid.ColumnSpan="3"/>
+                    <ComboBox SelectedItem="{Binding InsertBand}" ItemsSource="{Binding Bands}" DisplayMemberPath="Name" Grid.Column="3" Grid.Row="2" Margin="3.5,4.88,3.5,3.763" VerticalContentAlignment="Center" Grid.ColumnSpan="6"/>
+                    <Label Content="tijd" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="2,5.57,6.5,3.073" Grid.ColumnSpan="3"/>
+                    <TextBox Text="{Binding InsertFrom}" Grid.Column="4" Grid.Row="3" Margin="4,5.57,5,3.073" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    <TextBox Text="{Binding InsertUntil}" Grid.Column="7" Grid.Row="3" Margin="5.5,5.57,3.5,3.073" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    <Label Content="van" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="3" Margin="3.5,5.57,6,3.073"/>
+                    <Label Content="tot" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="6" Margin="5,5.57,4.5,3.073"/>
+                    <Button Command="{Binding AddLineUp}" Content="Voeg toe" Grid.Column="5" Grid.Row="8" Margin="4.5,9.686,3.5,-0.377" Grid.ColumnSpan="4"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>
