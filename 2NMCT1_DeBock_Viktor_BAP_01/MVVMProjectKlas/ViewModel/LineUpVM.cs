@@ -15,13 +15,13 @@ namespace MVVMProjectKlas.ViewModel
     {
         public LineUpVM()
         {
-            _lineUp = LineUp.GetLineUp();
+            //_lineUp = LineUp.GetLineUp();
             _festival = Festival.GetFestival();
             _diffLineUpDagen = LineUp.GetLineUpDagen();
             //String.Format("{0:M/d/yyyy}", _diffLineUpDagen); 
             LineUpDagen = new ObservableCollection<DateTime>();
             SelectedAddLineUpDag = Festivals[0].StartData;
-            _stages = Stage.GetStages();
+            //_stages = Stage.GetStages();
             _bands = Band.GetBands();
         }
 
@@ -36,7 +36,10 @@ namespace MVVMProjectKlas.ViewModel
 
         public ObservableCollection<DateTime> LineUpDagen
         {
-            get { return lineUpDagen; }
+            get { 
+                //return lineUpDagen; 
+                return LineUp.GetLineUpDagen();
+            }
             set { lineUpDagen = value; }
         }
 
@@ -48,6 +51,7 @@ namespace MVVMProjectKlas.ViewModel
             set 
             {
                 selectedDeleteLineUpDag = value;
+                FilterLineUp();
             }
         }
         
@@ -75,7 +79,7 @@ namespace MVVMProjectKlas.ViewModel
             set
             {
                 _bands = value;
-                OnPropertyChanged("Bands"); // property is gewijzigd
+                //OnPropertyChanged("Bands"); // property is gewijzigd
             }
         }
 
@@ -86,12 +90,13 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _stages;
+                //return _stages;
+                return Stage.GetStages();
             }
             set
             {
                 _stages = value;
-                OnPropertyChanged("Stages"); // property is gewijzigd
+                //OnPropertyChanged("Stages"); // property is gewijzigd
             }
         }
 
@@ -124,7 +129,7 @@ namespace MVVMProjectKlas.ViewModel
             set
             {
                 _diffLineUpDagen = value;
-                OnPropertyChanged("LineUpDagen"); // property is gewijzigd
+                //OnPropertyChanged("LineUpDagen"); // property is gewijzigd
             }
         }
 
@@ -135,12 +140,30 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _lineUp;
+                //return _lineUp;
+                return LineUp.GetLineUp();
             }
             set
             {
                 _lineUp = value;
-                OnPropertyChanged("LineUp"); // property is gewijzigd
+                //OnPropertyChanged("LineUp"); // property is gewijzigd
+            }
+        }
+
+        //property toevoegen waaraan we de lineup aan zullen binden
+        private ObservableCollection<LineUp> _lineUpF;
+
+        public ObservableCollection<LineUp> LineUpsF
+        {
+            get
+            {
+                return _lineUpF;
+                //return LineUp.GetLineUp();
+            }
+            set
+            {
+                _lineUpF = value;
+                OnPropertyChanged("LineUpF"); // property is gewijzigd
             }
         }
 
@@ -157,7 +180,7 @@ namespace MVVMProjectKlas.ViewModel
             set
             {
                 _festival = value;
-                OnPropertyChanged("Festival"); // property is gewijzigd
+                //OnPropertyChanged("Festival"); // property is gewijzigd
             }
         }
 
@@ -187,6 +210,7 @@ namespace MVVMProjectKlas.ViewModel
         private void deleteLineUpDag()
         {
             DiffLineUpDagen.Remove(SelectedDeleteLineUpDag);
+            Console.WriteLine(LineUp.DeleteDayFromLineUp(SelectedDeleteLineUpDag));
         }
 
         //Lineup wijzigen
@@ -202,6 +226,11 @@ namespace MVVMProjectKlas.ViewModel
         {
             LineUp b = new LineUp() { ID = SelectedItemLineUp.ID, Date = SelectedItemLineUp.Date, From = SelectedItemLineUp.From, Until = SelectedItemLineUp.Until, StageNummer = SelectedItemLineUp.CStage.ID, BandNummer = SelectedItemLineUp.CBand.ID };
             Console.WriteLine(LineUp.UpdateLineUp(b));
+            OnPropertyChanged("LineUps");
+            OnPropertyChanged("Stages");
+            OnPropertyChanged("LineUpDagen");
+            OnPropertyChanged("LineUpsF");
+            FilterLineUp();
         }
 
         //Lineup wijzigen
@@ -217,7 +246,47 @@ namespace MVVMProjectKlas.ViewModel
         {
             LineUp b = new LineUp() {  Date = InsertDate, From = InsertFrom, Until = InsertUntil, StageNummer = InsertStage.ID, BandNummer = InsertBand.ID };
             Console.WriteLine(LineUp.InsertLineUp(b));
+            OnPropertyChanged("LineUps");
+            OnPropertyChanged("Stages");
+            OnPropertyChanged("LineUpDagen");
+            OnPropertyChanged("LineUpsF");
+            FilterLineUp();
+        }
+
+        //Lineup Deleten
+        public ICommand DeleteSelectedLineUpRow
+        {
+            get
+            {
+                return new RelayCommand(deleteSelectedLineUpRow);
+            }
+        }
+
+        private void deleteSelectedLineUpRow()
+        {
+            LineUp b = new LineUp() { ID = SelectedItemLineUp.ID };
+            Console.WriteLine(LineUp.DeleteRowLineUp(b));
+            OnPropertyChanged("LineUps");
+            OnPropertyChanged("LineUpsF");
+            FilterLineUp();
         }
         
+        private void FilterLineUp()
+        {
+                ObservableCollection<LineUp> lu = new ObservableCollection<LineUp>();
+
+                foreach (LineUp lineup in LineUps)
+                {
+                    if (selectedDeleteLineUpDag == lineup.Date)
+                    {
+                        lu.Add(lineup);
+                    }
+                }
+
+                _lineUpF = lu;
+
+                OnPropertyChanged("LineUps");
+                OnPropertyChanged("LineUpsF");
+        }
     }
 }

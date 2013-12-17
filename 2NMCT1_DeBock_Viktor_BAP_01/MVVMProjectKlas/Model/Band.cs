@@ -178,7 +178,15 @@ namespace MVVMProjectKlas.Model
 
             DbParameter par5 = DbProviderFactories.GetFactory(provider).CreateParameter();
             par5.ParameterName = "Picture";
-            par5.Value = b.Picture;
+            if (par5.Value == null)
+            {
+                par5.Value = "imagesource";
+            }
+            else
+            {
+                par5.Value = b.Picture;
+            }
+            
             command.Parameters.Add(par5);
 
             DbParameter par6 = DbProviderFactories.GetFactory(provider).CreateParameter();

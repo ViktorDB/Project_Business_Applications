@@ -22,7 +22,7 @@ namespace MVVMProjectKlas.ViewModel
         public StaffVM()
         { 
             //data ophalen uit database
-            _staff = Contactperson.GetStaff();
+            //_staff = Contactperson.GetStaff();
             _contactPersonTypes = ContactpersonType.GetContactpersonTypes();
         }
 
@@ -33,7 +33,8 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _staff;
+                //return _staff;
+                return Contactperson.GetStaff();
             }
             set
             {
@@ -186,8 +187,8 @@ namespace MVVMProjectKlas.ViewModel
         private void insertStaff()
         {
             Contactperson c = new Contactperson() {  Name = InsertName, Company = InsertCompany, GetalType = Convert.ToInt32(InsertJobRole.ID), City = InsertCity, Email = InsertEmail, Phone = InsertPhone, Cellphone = InsertCellphone, Adres = InsertAdres };
-            Staff.Add(c);
             Console.WriteLine(Contactperson.InsertContactperson(c));
+            OnPropertyChanged("Staff");
         }
 
         //Contactpersoon wijzigen
@@ -203,6 +204,7 @@ namespace MVVMProjectKlas.ViewModel
         {
             Contactperson c = new Contactperson() { ID = SelectedStaff.ID, Name = SelectedStaff.Name, Company = SelectedStaff.Company, GetalType = Convert.ToInt32(SelectedStaff.JobRole.ID), City = SelectedStaff.City, Email = SelectedStaff.Email, Phone = SelectedStaff.Phone, Cellphone = SelectedStaff.Cellphone, Adres = SelectedStaff.Adres };
             Console.WriteLine(Contactperson.UpdateContactperson(c));
+            OnPropertyChanged("Staff");
         }
 
         //Contactpersoon wijzigen
@@ -218,6 +220,7 @@ namespace MVVMProjectKlas.ViewModel
         {
             Contactperson c = new Contactperson() { ID = SelectedStaff.ID, Name = SelectedStaff.Name, Company = SelectedStaff.Company, GetalType = Convert.ToInt32(SelectedStaff.JobRole.ID), City = SelectedStaff.City, Email = SelectedStaff.Email, Phone = SelectedStaff.Phone, Cellphone = SelectedStaff.Cellphone, Adres = SelectedStaff.Adres };
             Console.WriteLine(Contactperson.DeleteContactperson(c));
+            OnPropertyChanged("Staff");
         }
 
     }

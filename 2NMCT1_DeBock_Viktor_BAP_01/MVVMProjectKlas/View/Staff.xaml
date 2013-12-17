@@ -60,9 +60,9 @@
         <Label Content="Informatie" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.Column="12" Grid.ColumnSpan="4"/>
         <ListBox SelectedIndex="-1" SelectedItem="{Binding SelectedStaff}" ItemsSource="{Binding Staff}" ItemTemplate="{StaticResource StaffTemplate}" Grid.ColumnSpan="9" Grid.Row="4" Grid.RowSpan="8" Grid.Column="1" IsEnabled="True" Margin="5"/>
         <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="5" Margin="5" VerticalContentAlignment="Center"/>
-        <Button Content="Zoek" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="2" Margin="5"/>
+        <Button Content="Zoek" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="2" Margin="5" Foreground="White"/>
         <TabControl Grid.ColumnSpan="15" Grid.Column="10" HorizontalAlignment="Left" Height="403" Margin="50,0,0,0" Grid.Row="3" Grid.RowSpan="9" VerticalAlignment="Top" Width="668">
-        	<TabItem x:Name="___TabItem___Info_" Header="Info" Margin="0">
+        	<TabItem x:Name="___TabItem___Info_" Header="Info" Margin="0" Width="40">
         		<Grid Background="#FFE5E5E5" Margin="0">
         			<Grid.RowDefinitions>
         				<RowDefinition Height="1*"/>
@@ -99,7 +99,7 @@
         			<ComboBox SelectedValue="{Binding SelectedStaff.JobRole.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedStaff.JobRole}" ItemsSource="{Binding ContactPersonTypes}" DisplayMemberPath="Name" Grid.Row="5" Grid.ColumnSpan="5" Grid.Column="1"/>
         			<Label Content="Bedrijf" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="2" Grid.ColumnSpan="4" Grid.Column="1"/>
         			<Label Content="E-mail" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="1"/>
-        			<Button Command="{Binding UpdateStaff}" Content="Wijzig" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="5"/>
+        			<Button Command="{Binding UpdateStaff}" Content="Wijzig" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="5" Foreground="White"/>
         			<Label Content="Stad" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.ColumnSpan="3"/>
         			<TextBox Text="{Binding SelectedStaff.City}" Grid.Row="1" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
         			<Label Content="Adres" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="3"/>
@@ -110,13 +110,7 @@
         			<TextBox Text="{Binding SelectedStaff.Cellphone}" Grid.Row="7" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
         		</Grid>
         	</TabItem>
-        	<TabItem Header="+">
-        		<TabItem.Background>
-        			<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-        				<GradientStop Color="#FFF0F0F0" Offset="0"/>
-        				<GradientStop Color="#FF64E036" Offset="1"/>
-        			</LinearGradientBrush>
-        		</TabItem.Background>
+        	<TabItem Header="+" Background="{x:Null}">
         		<Grid Background="#FFE5E5E5">
         			<Grid.RowDefinitions>
         				<RowDefinition Height="1*"/>
@@ -161,7 +155,7 @@
                     <TextBox Text="{Binding InsertPhone, Mode=TwoWay}" Grid.Row="5" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
         			<Label Content="GSM" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="3"/>
                     <TextBox Text="{Binding InsertCellphone, Mode=TwoWay}" Grid.Row="7" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
-        			<Button Command="{Binding InsertStaff}" Content="Voeg toe" Grid.ColumnSpan="5" Grid.Column="8" Grid.Row="8"/>
+        			<Button Command="{Binding InsertStaff}" Content="Voeg toe" Grid.ColumnSpan="5" Grid.Column="8" Grid.Row="8" Foreground="White"/>
         		</Grid>
         	</TabItem>
         </TabControl>

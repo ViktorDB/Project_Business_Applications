@@ -19,10 +19,10 @@ namespace MVVMProjectKlas.ViewModel
 
         public InstellingenVM()
         {
-            _genres = Genre.GetGenres();
-            _ticketTypes = TicketType.GetTicketTypes();
-            _contactPersonTypes = ContactpersonType.GetContactpersonTypes();
-            _stages = Stage.GetStages();
+            //_genres = Genre.GetGenres();
+            //_ticketTypes = TicketType.GetTicketTypes();
+            //_contactPersonTypes = ContactpersonType.GetContactpersonTypes();
+            //_stages = Stage.GetStages();
         }
 
         //property toevoegen waaraan we de combobox uit de usercontrol instellingen aan zullen binden
@@ -32,7 +32,8 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _genres;
+                //return _genres;
+                return Genre.GetGenres();
             }
             set
             {
@@ -48,7 +49,8 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _ticketTypes;
+               // return _ticketTypes;
+                return TicketType.GetTicketTypes();
             }
             set
             {
@@ -64,7 +66,8 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _contactPersonTypes;
+                //return _contactPersonTypes;
+                return ContactpersonType.GetContactpersonTypes();
             }
             set
             {
@@ -80,7 +83,8 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _stages;
+                //return _stages;
+                return Stage.GetStages();
             }
             set
             {
@@ -245,6 +249,7 @@ namespace MVVMProjectKlas.ViewModel
         {
             Stage s = new Stage() { Name = InsertStageName};
             Console.WriteLine(Stage.InsertStage(s));
+            OnPropertyChanged("Stages");
         }
 
         //Stage wijzigen
@@ -260,6 +265,7 @@ namespace MVVMProjectKlas.ViewModel
         {
             Stage s = new Stage() { ID = UpdateStageCombobox.ID, Name = UpdateStageName };
             Console.WriteLine(Stage.UpdateStage(s));
+            OnPropertyChanged("Stages");
         }
 
         //Genre toevoegen
@@ -275,6 +281,7 @@ namespace MVVMProjectKlas.ViewModel
         {
             Genre g = new Genre() { Name = InsertGenreName };
             Console.WriteLine(Genre.InsertGenre(g));
+            OnPropertyChanged("Genres");
         }
 
         //Genre wijzigen
@@ -290,6 +297,7 @@ namespace MVVMProjectKlas.ViewModel
         {
             Genre g = new Genre() { ID = UpdateGenreCombobox.ID, Name = UpdateGenreName };
             Console.WriteLine(Genre.UpdateGenre(g));
+            OnPropertyChanged("Genres");
         }
 
         //staff toevoegen
@@ -305,6 +313,7 @@ namespace MVVMProjectKlas.ViewModel
         {
             ContactpersonType s = new ContactpersonType() { Name = InsertStaffName };
             Console.WriteLine(ContactpersonType.InsertStaff(s));
+            OnPropertyChanged("ContactPersonTypes");
         }
 
         //staff wijzigen
@@ -320,6 +329,7 @@ namespace MVVMProjectKlas.ViewModel
         {
             ContactpersonType c = new ContactpersonType() { ID = UpdateStaffCombobox.ID, Name = UpdateStaffName };
             Console.WriteLine(ContactpersonType.UpdateStaff(c));
+            OnPropertyChanged("ContactPersonTypes");
         }
 
         //TicketType toevoegen
@@ -335,6 +345,7 @@ namespace MVVMProjectKlas.ViewModel
         {
             TicketType t = new TicketType() { Name = InsertTicketName, Price = InsertTicketPrice, AvailableTickets = InsertTicketNumber };
             Console.WriteLine(TicketType.InsertTicketType(t));
+            OnPropertyChanged("TicketTypes");
         }
 
         //TicketType wijzigen
@@ -350,6 +361,7 @@ namespace MVVMProjectKlas.ViewModel
         {
             TicketType t = new TicketType() { ID = UpdateTicketCombobox.ID, Name = UpdateTicketName, Price = UpdateTicketPrice, AvailableTickets = UpdateTicketNumber };
             Console.WriteLine(TicketType.UpdateTicketType(t));
+            OnPropertyChanged("TicketTypes");
         }
     }
 }

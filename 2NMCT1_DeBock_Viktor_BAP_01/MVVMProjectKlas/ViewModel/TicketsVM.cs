@@ -20,8 +20,8 @@ namespace MVVMProjectKlas.ViewModel
         public TicketsVM()
         {
             //data ophalen uit database
-            _tickets = Ticket.GetTickets();
-            _ticketTypes = TicketType.GetTicketTypes();
+            //_tickets = Ticket.GetTickets();
+            //_ticketTypes = TicketType.GetTicketTypes();
             VoorlopigeTicketsLijst = new ObservableCollection<TicketType>();
             GereserveerdeTickets = new ObservableCollection<Ticket>();
         }
@@ -32,7 +32,8 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _tickets;
+                //return _tickets;
+                return Ticket.GetTickets();
             }
             set
             {
@@ -48,7 +49,8 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _ticketTypes;
+                //return _ticketTypes;
+                return TicketType.GetTicketTypes();
             }
             set
             {
@@ -174,6 +176,8 @@ namespace MVVMProjectKlas.ViewModel
             {
                 Console.WriteLine(Ticket.InsertTicket(ticketje));    
             }
+            OnPropertyChanged("Tickets");
+            OnPropertyChanged("TicketTypes");
         }
 
     }

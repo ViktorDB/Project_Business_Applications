@@ -1,12 +1,15 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Microsoft.Win32;
 using MVVMProjectKlas.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace MVVMProjectKlas.ViewModel
 {
@@ -20,8 +23,8 @@ namespace MVVMProjectKlas.ViewModel
         public BandsVM()
         { 
             //data ophalen uit database
-            _bands = Band.GetBands();
-            _genres = Genre.GetGenres();
+            //_bands = Band.GetBands();
+            //_genres = Genre.GetGenres();
             InsertGenres = new ObservableCollection<Genre>();
 
         }
@@ -33,7 +36,8 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _bands;
+                //return _bands;
+                return Band.GetBands();
             }
             set
             {
@@ -77,7 +81,8 @@ namespace MVVMProjectKlas.ViewModel
         {
             get
             {
-                return _genres;
+                //return _genres;
+                return Genre.GetGenres();
             }
             set
             {
@@ -289,6 +294,8 @@ namespace MVVMProjectKlas.ViewModel
             {
                 Console.WriteLine(Band.UpdateBandGenre(b, genreGetal));
             }
+
+            OnPropertyChanged("Bands");
         }
 
         //Band toevoegen
@@ -311,7 +318,7 @@ namespace MVVMProjectKlas.ViewModel
 
 
             Band b = new Band() { Name = insertName, Description = insertDescription, Facebook = InsertFacebook, Twitter = InsertTwitter, Picture = "ImageSource", GenreGetallen = GenreIdGetallen, StandardGenreGetal = 1};
-            Bands.Add(b);
+            
             Console.WriteLine(Band.InsertBand(b));
             Console.WriteLine(Band.GetLastRowId());
 
@@ -319,8 +326,37 @@ namespace MVVMProjectKlas.ViewModel
             {
                 Console.WriteLine(Band.InsertBandGenre(b, genreGetal));
             }
+            OnPropertyChanged("Bands");
         }
 
+        public ICommand WijzigPicture
+        {
+            get
+            {
+                return new RelayCommand(wijzigPicture);
+            }
+        }
+
+        public string PathFile;
+
+        private void wijzigPicture()
+        {
+            // Create an instance of the open file dialog box.
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            // Set filter options and filter index.
+            openFileDialog1.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory + "Images_Band";
+
+            //string pathname = openFileDialog1.FileName;
+            openFileDialog1.ShowDialog();
+
+            String pathfile = "Images/" + openFileDialog1.SafeFileName;
+            
+
+            PathFile = pathfile;
+
+
+
+        }
 
     }
 }
