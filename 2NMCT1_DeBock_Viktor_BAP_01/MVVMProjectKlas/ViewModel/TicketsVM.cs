@@ -1,8 +1,11 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using GalaSoft.MvvmLight.Command;
 using MVVMProjectKlas.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +59,22 @@ namespace MVVMProjectKlas.ViewModel
             {
                 _ticketTypes = value;
                 OnPropertyChanged("TicketTypes"); // property is gewijzigd
+            }
+        }
+
+        //property toevoegen waaraan we de selected ticket aan zullen binden
+        private Ticket selectedTicket;
+
+        public Ticket SelectedTicket
+        {
+            get
+            {
+                return selectedTicket;
+            }
+            set
+            {
+                selectedTicket = value;
+                OnPropertyChanged("SelectedTicket"); // property is gewijzigd
             }
         }
 
@@ -132,9 +151,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void addTickets()
         {
-            TicketType tt = new TicketType() {ID = ReserveerTicketCombobox.ID, Name = ReserveerTicketCombobox.Name, AvailableTickets = ReserveerTicketCombobox.AvailableTickets, Price = ReserveerTicketCombobox.Price, AantalTickets = ReserveerTicketAantal};
+            try
+            {
+                TicketType tt = new TicketType() { ID = ReserveerTicketCombobox.ID, Name = ReserveerTicketCombobox.Name, AvailableTickets = ReserveerTicketCombobox.AvailableTickets, Price = ReserveerTicketCombobox.Price, AantalTickets = ReserveerTicketAantal };
 
-            VoorlopigeTicketsLijst.Add(tt);
+                VoorlopigeTicketsLijst.Add(tt);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Tickets verwijderen aan Voorlopige lijst
@@ -148,7 +174,14 @@ namespace MVVMProjectKlas.ViewModel
 
         private void deleteTickets()
         {
-            VoorlopigeTicketsLijst.Remove(SelectedTicketTypeListbox);
+            try
+            {
+                VoorlopigeTicketsLijst.Remove(SelectedTicketTypeListbox);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Tickets reserveren
@@ -162,23 +195,65 @@ namespace MVVMProjectKlas.ViewModel
 
         private void reserveerTickets()
         {
-            ObservableCollection<Ticket> ReservatieLijst = new ObservableCollection<Ticket>();
-            //TicketType ReservatieLijn = new TicketType();
-
-            for (int i = 0; i < VoorlopigeTicketsLijst.Count(); i++ )
+            try
             {
-                Ticket ReservatieLijn = new Ticket() { Ticketholder = ReserveerTicketName, Amount = VoorlopigeTicketsLijst[i].AantalTickets, TicketholderEmail = ReserveerTicketEmail, TicketTypeID = VoorlopigeTicketsLijst[i].ID, TicketTypeNaam = VoorlopigeTicketsLijst[i].Name, AvailableTicketsForType = VoorlopigeTicketsLijst[i].AvailableTickets };
-                GereserveerdeTickets.Add(ReservatieLijn);
-                Console.WriteLine(TicketType.UpdateAvailableTickets(ReservatieLijn));
-            }
+                ObservableCollection<Ticket> ReservatieLijst = new ObservableCollection<Ticket>();
+                //TicketType ReservatieLijn = new TicketType();
 
-            foreach (Ticket ticketje in GereserveerdeTickets)
-            {
-                Console.WriteLine(Ticket.InsertTicket(ticketje));    
+                for (int i = 0; i < VoorlopigeTicketsLijst.Count(); i++)
+                {
+                    Ticket ReservatieLijn = new Ticket() { Ticketholder = ReserveerTicketName, Amount = VoorlopigeTicketsLijst[i].AantalTickets, TicketholderEmail = ReserveerTicketEmail, TicketTypeID = VoorlopigeTicketsLijst[i].ID, TicketTypeNaam = VoorlopigeTicketsLijst[i].Name, AvailableTicketsForType = VoorlopigeTicketsLijst[i].AvailableTickets };
+                    GereserveerdeTickets.Add(ReservatieLijn);
+                    Console.WriteLine(TicketType.UpdateAvailableTickets(ReservatieLijn));
+                }
+
+                foreach (Ticket ticketje in GereserveerdeTickets)
+                {
+                    Console.WriteLine(Ticket.InsertTicket(ticketje));
+                }
+                OnPropertyChanged("Tickets");
+                OnPropertyChanged("TicketTypes");
             }
-            OnPropertyChanged("Tickets");
-            OnPropertyChanged("TicketTypes");
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
+
+        //Tickets exporteren
+        public ICommand ExportTickets
+        {
+            get
+            {
+                return new RelayCommand(exportTickets);
+            }
+        }
+
+        private void exportTickets()
+        {
+            try
+            {
+                string filename = "ticket_export/" + SelectedTicket.Ticketholder + "_" + SelectedTicket.TicketTypeNaam + ".docx";
+                File.Copy("template.docx", filename, true);
+                WordprocessingDocument newdoc = WordprocessingDocument.Open(filename, true);
+                IDictionary<String, BookmarkStart> bookmarks = new Dictionary<String, BookmarkStart>();
+                foreach (BookmarkStart bms in newdoc.MainDocumentPart.RootElement.Descendants<BookmarkStart>())
+                {
+                    bookmarks[bms.Name] = bms;
+                }
+                bookmarks["TicketHolder"].Parent.InsertAfter<DocumentFormat.OpenXml.Wordprocessing.Run>(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(SelectedTicket.Ticketholder)), bookmarks["TicketHolder"]);
+                bookmarks["TicketHolderEmail"].Parent.InsertAfter<DocumentFormat.OpenXml.Wordprocessing.Run>(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(SelectedTicket.TicketholderEmail)), bookmarks["TicketHolderEmail"]);
+                bookmarks["TicketType"].Parent.InsertAfter<DocumentFormat.OpenXml.Wordprocessing.Run>(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(SelectedTicket.TicketTypeNaam)), bookmarks["TicketType"]);
+                bookmarks["Aantal"].Parent.InsertAfter<DocumentFormat.OpenXml.Wordprocessing.Run>(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(SelectedTicket.Amount.ToString())), bookmarks["Aantal"]);
+                newdoc.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
+
+        }
+
 
     }
 }

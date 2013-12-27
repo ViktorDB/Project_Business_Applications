@@ -209,8 +209,15 @@ namespace MVVMProjectKlas.ViewModel
 
         private void deleteLineUpDag()
         {
-            DiffLineUpDagen.Remove(SelectedDeleteLineUpDag);
-            Console.WriteLine(LineUp.DeleteDayFromLineUp(SelectedDeleteLineUpDag));
+            try
+            {
+                DiffLineUpDagen.Remove(SelectedDeleteLineUpDag);
+                Console.WriteLine(LineUp.DeleteDayFromLineUp(SelectedDeleteLineUpDag));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Lineup wijzigen
@@ -224,13 +231,20 @@ namespace MVVMProjectKlas.ViewModel
 
         private void wijziglineUp()
         {
-            LineUp b = new LineUp() { ID = SelectedItemLineUp.ID, Date = SelectedItemLineUp.Date, From = SelectedItemLineUp.From, Until = SelectedItemLineUp.Until, StageNummer = SelectedItemLineUp.CStage.ID, BandNummer = SelectedItemLineUp.CBand.ID };
-            Console.WriteLine(LineUp.UpdateLineUp(b));
-            OnPropertyChanged("LineUps");
-            OnPropertyChanged("Stages");
-            OnPropertyChanged("LineUpDagen");
-            OnPropertyChanged("LineUpsF");
-            FilterLineUp();
+            try
+            {
+                LineUp b = new LineUp() { ID = SelectedItemLineUp.ID, Date = SelectedItemLineUp.Date, From = SelectedItemLineUp.From, Until = SelectedItemLineUp.Until, StageNummer = SelectedItemLineUp.CStage.ID, BandNummer = SelectedItemLineUp.CBand.ID };
+                Console.WriteLine(LineUp.UpdateLineUp(b));
+                OnPropertyChanged("LineUps");
+                OnPropertyChanged("Stages");
+                OnPropertyChanged("LineUpDagen");
+                OnPropertyChanged("LineUpsF");
+                FilterLineUp();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Lineup wijzigen
@@ -244,13 +258,20 @@ namespace MVVMProjectKlas.ViewModel
 
         private void addLineUp()
         {
-            LineUp b = new LineUp() {  Date = InsertDate, From = InsertFrom, Until = InsertUntil, StageNummer = InsertStage.ID, BandNummer = InsertBand.ID };
-            Console.WriteLine(LineUp.InsertLineUp(b));
-            OnPropertyChanged("LineUps");
-            OnPropertyChanged("Stages");
-            OnPropertyChanged("LineUpDagen");
-            OnPropertyChanged("LineUpsF");
-            FilterLineUp();
+            try
+            {
+                LineUp b = new LineUp() { Date = InsertDate, From = InsertFrom, Until = InsertUntil, StageNummer = InsertStage.ID, BandNummer = InsertBand.ID };
+                Console.WriteLine(LineUp.InsertLineUp(b));
+                OnPropertyChanged("LineUps");
+                OnPropertyChanged("Stages");
+                OnPropertyChanged("LineUpDagen");
+                OnPropertyChanged("LineUpsF");
+                FilterLineUp();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Lineup Deleten
@@ -264,11 +285,18 @@ namespace MVVMProjectKlas.ViewModel
 
         private void deleteSelectedLineUpRow()
         {
-            LineUp b = new LineUp() { ID = SelectedItemLineUp.ID };
-            Console.WriteLine(LineUp.DeleteRowLineUp(b));
-            OnPropertyChanged("LineUps");
-            OnPropertyChanged("LineUpsF");
-            FilterLineUp();
+            try
+            {
+                LineUp b = new LineUp() { ID = SelectedItemLineUp.ID };
+                Console.WriteLine(LineUp.DeleteRowLineUp(b));
+                OnPropertyChanged("LineUps");
+                OnPropertyChanged("LineUpsF");
+                FilterLineUp();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
         
         private void FilterLineUp()

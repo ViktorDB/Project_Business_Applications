@@ -156,51 +156,120 @@ namespace MVVMProjectKlas.Model
             command.CommandType = System.Data.CommandType.Text;
             command.Connection = con;
 
-            DbParameter par = DbProviderFactories.GetFactory(provider).CreateParameter();
-            par.ParameterName = "Name";
-            par.Value = b.Name;
-            command.Parameters.Add(par);
+            //DbParameter par = DbProviderFactories.GetFactory(provider).CreateParameter();
+            //par.ParameterName = "Name";
+            //par.Value = b.Name;
+            //command.Parameters.Add(par);
 
-            DbParameter par2 = DbProviderFactories.GetFactory(provider).CreateParameter();
-            par2.ParameterName = "Description";
-            par2.Value = b.Description;
-            command.Parameters.Add(par2);
+            //DbParameter par2 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            //par2.ParameterName = "Description";
+            //par2.Value = b.Description;
+            //command.Parameters.Add(par2);
 
-            DbParameter par3 = DbProviderFactories.GetFactory(provider).CreateParameter();
-            par3.ParameterName = "Twitter";
-            par3.Value = b.Twitter;
-            command.Parameters.Add(par3);
+            //DbParameter par3 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            //par3.ParameterName = "Twitter";
+            //par3.Value = b.Twitter;
+            //command.Parameters.Add(par3);
 
-            DbParameter par4 = DbProviderFactories.GetFactory(provider).CreateParameter();
-            par4.ParameterName = "Facebook";
-            par4.Value = b.Facebook;
-            command.Parameters.Add(par4);
+            //DbParameter par4 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            //par4.ParameterName = "Facebook";
+            //par4.Value = b.Facebook;
+            //command.Parameters.Add(par4);
 
-            DbParameter par5 = DbProviderFactories.GetFactory(provider).CreateParameter();
-            par5.ParameterName = "Picture";
-            if (par5.Value == null)
+            //DbParameter par5 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            //par5.ParameterName = "Picture";
+            //par5.Value = b.Picture;
+            //command.Parameters.Add(par5);
+
+            //DbParameter par6 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            //par6.ParameterName = "ID";
+            //par6.Value = b.ID;
+            //command.Parameters.Add(par6);
+
+            //DbParameter par7 = DbProviderFactories.GetFactory(provider).CreateParameter();
+            //par7.ParameterName = "Genres";
+            //par7.Value = b.StandardGenreGetal;
+            //command.Parameters.Add(par7);
+
+            if (b.Picture == null)
             {
-                par5.Value = "imagesource";
+                DbParameter para = DbProviderFactories.GetFactory(provider).CreateParameter();
+                para.ParameterName = "Name";
+                para.Value = b.Name;
+                command.Parameters.Add(para);
+
+                DbParameter para2 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                para2.ParameterName = "Description";
+                para2.Value = b.Description;
+                command.Parameters.Add(para2);
+
+                DbParameter para3 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                para3.ParameterName = "Twitter";
+                para3.Value = b.Twitter;
+                command.Parameters.Add(para3);
+
+                DbParameter para4 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                para4.ParameterName = "Facebook";
+                para4.Value = b.Facebook;
+                command.Parameters.Add(para4);
+
+                //DbParameter para5 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                //para5.ParameterName = "Picture";
+                //para5.Value = b.Picture;
+                //command.Parameters.Add(para5);
+
+                DbParameter para6 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                para6.ParameterName = "ID";
+                para6.Value = b.ID;
+                command.Parameters.Add(para6);
+
+                DbParameter para7 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                para7.ParameterName = "Genres";
+                para7.Value = b.StandardGenreGetal;
+                command.Parameters.Add(para7);
+
+                command.CommandText = "UPDATE Band SET BandName=@Name, Description=@Description, Twitter=@Twitter, Facebook=@Facebook, Genres=@Genres WHERE IDBand = @ID";
             }
             else
             {
-                par5.Value = b.Picture;
+                DbParameter parr = DbProviderFactories.GetFactory(provider).CreateParameter();
+                parr.ParameterName = "Name";
+                parr.Value = b.Name;
+                command.Parameters.Add(parr);
+
+                DbParameter parr2 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                parr2.ParameterName = "Description";
+                parr2.Value = b.Description;
+                command.Parameters.Add(parr2);
+
+                DbParameter parr3 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                parr3.ParameterName = "Twitter";
+                parr3.Value = b.Twitter;
+                command.Parameters.Add(parr3);
+
+                DbParameter parr4 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                parr4.ParameterName = "Facebook";
+                parr4.Value = b.Facebook;
+                command.Parameters.Add(parr4);
+
+                DbParameter parr5 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                parr5.ParameterName = "Picture";
+                parr5.Value = b.Picture;
+                command.Parameters.Add(parr5);
+
+                DbParameter parr6 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                parr6.ParameterName = "ID";
+                parr6.Value = b.ID;
+                command.Parameters.Add(parr6);
+
+                DbParameter parr7 = DbProviderFactories.GetFactory(provider).CreateParameter();
+                parr7.ParameterName = "Genres";
+                parr7.Value = b.StandardGenreGetal;
+                command.Parameters.Add(parr7);
+
+                command.CommandText = "UPDATE Band SET BandName=@Name, Description=@Description, Twitter=@Twitter, Facebook=@Facebook, Picture=@Picture, Genres=@Genres WHERE IDBand = @ID";
             }
-            
-            command.Parameters.Add(par5);
 
-            DbParameter par6 = DbProviderFactories.GetFactory(provider).CreateParameter();
-            par6.ParameterName = "ID";
-            par6.Value = b.ID;
-            command.Parameters.Add(par6);
-
-            DbParameter par7 = DbProviderFactories.GetFactory(provider).CreateParameter();
-            par7.ParameterName = "Genres";
-            par7.Value = b.StandardGenreGetal;
-            command.Parameters.Add(par7);
-
-
-            command.CommandText = "UPDATE Band SET BandName=@Name, Description=@Description, Twitter=@Twitter, Facebook=@Facebook, Picture=@Picture, Genres=@Genres WHERE IDBand = @ID";
             int affected = command.ExecuteNonQuery();
 
             con.Close();

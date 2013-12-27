@@ -12,6 +12,7 @@
                 <TextBlock Text="{Binding Name}" Margin="4"/>
             </StackPanel>
         </DataTemplate>
+
     </UserControl.Resources>
     <Grid Margin="0" Height="547" Background="White">
         <Grid.ColumnDefinitions>
@@ -57,7 +58,6 @@
             <RowDefinition Height="45*"/>
         </Grid.RowDefinitions>
         <Label Content="Staff" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>
-        <Label Content="Informatie" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="20" FontWeight="Bold" Grid.Column="12" Grid.ColumnSpan="4"/>
         <ListBox SelectedIndex="-1" SelectedItem="{Binding SelectedStaff}" ItemsSource="{Binding Staff}" ItemTemplate="{StaticResource StaffTemplate}" Grid.ColumnSpan="9" Grid.Row="4" Grid.RowSpan="8" Grid.Column="1" IsEnabled="True" Margin="5"/>
         <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="5" Margin="5" VerticalContentAlignment="Center"/>
         <Button Content="Zoek" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="2" Margin="5" Foreground="White"/>
@@ -92,22 +92,22 @@
 						<ColumnDefinition Width="1*"/>
         			</Grid.ColumnDefinitions>
         			<Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="3" Grid.Column="1"/>
-        			<TextBox Text="{Binding SelectedStaff.Email}" Grid.Row="7" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
-        			<TextBox Text="{Binding SelectedStaff.Company}" Grid.Row="3" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
-        			<TextBox Text="{Binding SelectedStaff.Name}" Grid.Row="1" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
+        			<TextBox Text="{Binding SelectedStaff.Email}" Grid.Row="6" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
+        			<TextBox Text="{Binding SelectedStaff.Company}" Grid.Row="2" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
+                    <TextBox Text="{Binding SelectedStaff.Name}" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
         			<Label Content="Type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1"/>
-        			<ComboBox SelectedValue="{Binding SelectedStaff.JobRole.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedStaff.JobRole}" ItemsSource="{Binding ContactPersonTypes}" DisplayMemberPath="Name" Grid.Row="5" Grid.ColumnSpan="5" Grid.Column="1"/>
+        			<ComboBox SelectedValue="{Binding SelectedStaff.JobRole.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedStaff.JobRole}" ItemsSource="{Binding ContactPersonTypes}" DisplayMemberPath="Name" Grid.Row="4" Grid.ColumnSpan="5" Grid.Column="1" Margin="0,28.672,0,13" Grid.RowSpan="2" VerticalContentAlignment="Center"/>
         			<Label Content="Bedrijf" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="2" Grid.ColumnSpan="4" Grid.Column="1"/>
         			<Label Content="E-mail" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="1"/>
-        			<Button Command="{Binding UpdateStaff}" Content="Wijzig" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="5" Foreground="White"/>
+        			<Button Command="{Binding UpdateStaff}" Content="Wijzig" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="12" Foreground="White" Margin="0,36.671,0,5" Grid.RowSpan="2"/>
         			<Label Content="Stad" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.ColumnSpan="3"/>
-        			<TextBox Text="{Binding SelectedStaff.City}" Grid.Row="1" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<TextBox Text="{Binding SelectedStaff.City}" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
         			<Label Content="Adres" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="3"/>
-        			<TextBox Text="{Binding SelectedStaff.Adres}" Grid.Row="3" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<TextBox Text="{Binding SelectedStaff.Adres}" Grid.Row="2" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
         			<Label Content="Telefoon" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="3"/>
-        			<TextBox Text="{Binding SelectedStaff.Phone}" Grid.Row="5" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<TextBox Text="{Binding SelectedStaff.Phone}" Grid.Row="4" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Margin="0,28.672,0,13" Grid.RowSpan="2"/>
         			<Label Content="GSM" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="3"/>
-        			<TextBox Text="{Binding SelectedStaff.Cellphone}" Grid.Row="7" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+        			<TextBox Text="{Binding SelectedStaff.Cellphone}" Grid.Row="6" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
         		</Grid>
         	</TabItem>
         	<TabItem Header="+" Background="{x:Null}">
@@ -140,22 +140,22 @@
         				<ColumnDefinition Width="1*"/>
         			</Grid.ColumnDefinitions>
         			<Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.ColumnSpan="3" Grid.Column="1"/>
-                    <TextBox Text="{Binding InsertEmail, Mode=TwoWay}" Grid.Row="7" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
-                    <TextBox Text="{Binding InsertCompany, Mode=TwoWay}" Grid.Row="3" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
-        			<TextBox Text="{Binding InsertName, Mode=TwoWay}" Grid.Row="1" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1"/>
+                    <TextBox Text="{Binding InsertEmail, Mode=TwoWay}" Grid.Row="6" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
+                    <TextBox Text="{Binding InsertCompany, Mode=TwoWay}" Grid.Row="2" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
+        			<TextBox Text="{Binding InsertName, Mode=TwoWay}" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Column="1" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
         			<Label Content="Type" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1"/>
-                    <ComboBox SelectedValue="{Binding InsertJobRole.ID, Mode=TwoWay}" SelectedValuePath="ID" SelectedItem="{Binding InsertJobRole}" ItemsSource="{Binding ContactPersonTypes}" DisplayMemberPath="Name" Grid.Row="5" Grid.ColumnSpan="5" Grid.Column="1"/>
+                    <ComboBox SelectedValue="{Binding InsertJobRole.ID, Mode=TwoWay}" SelectedValuePath="ID" SelectedItem="{Binding InsertJobRole}" ItemsSource="{Binding ContactPersonTypes}" DisplayMemberPath="Name" Grid.Row="4" Grid.ColumnSpan="5" Grid.Column="1" Margin="0,28.672,0,13" Grid.RowSpan="2"/>
         			<Label Content="Bedrijf" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="2" Grid.ColumnSpan="4" Grid.Column="1"/>
         			<Label Content="E-mail" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="1"/>
         			<Label Content="Stad" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.ColumnSpan="3"/>
-                    <TextBox Text="{Binding InsertCity, Mode=TwoWay}" Grid.Row="1" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+                    <TextBox Text="{Binding InsertCity, Mode=TwoWay}" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
         			<Label Content="Adres" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="3"/>
-                    <TextBox Text="{Binding InsertAdres, Mode=TwoWay}" Grid.Row="3" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+                    <TextBox Text="{Binding InsertAdres, Mode=TwoWay}" Grid.Row="2" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
         			<Label Content="Telefoon" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="3"/>
-                    <TextBox Text="{Binding InsertPhone, Mode=TwoWay}" Grid.Row="5" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
+                    <TextBox Text="{Binding InsertPhone, Mode=TwoWay}" Grid.Row="4" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Margin="0,28.672,0,13" Grid.RowSpan="2"/>
         			<Label Content="GSM" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="3"/>
-                    <TextBox Text="{Binding InsertCellphone, Mode=TwoWay}" Grid.Row="7" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
-        			<Button Command="{Binding InsertStaff}" Content="Voeg toe" Grid.ColumnSpan="5" Grid.Column="8" Grid.Row="8" Foreground="White"/>
+                    <TextBox Text="{Binding InsertCellphone, Mode=TwoWay}" Grid.Row="6" TextWrapping="Wrap" Grid.Column="8" VerticalContentAlignment="Center" Grid.ColumnSpan="5" Margin="0,28.671,0,13" Grid.RowSpan="2"/>
+        			<Button Command="{Binding InsertStaff}" Content="Voeg toe" Grid.ColumnSpan="12" Grid.Column="1" Grid.Row="7" Foreground="White" Margin="0,36.671,0,5" Grid.RowSpan="2"/>
         		</Grid>
         	</TabItem>
         </TabControl>

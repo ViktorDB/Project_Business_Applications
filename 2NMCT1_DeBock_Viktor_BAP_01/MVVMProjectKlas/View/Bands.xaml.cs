@@ -25,7 +25,15 @@ namespace MVVMProjectKlas.View
         {
             InitializeComponent();
         }
-        public string PathFile;
+
+        private void insertImage_Drop(object sender, DragEventArgs e)
+        {
+            string[] fileSource = (string[])e.Data.GetData(DataFormats.FileDrop);
+            insertImage.Source = new BitmapImage(new Uri(fileSource[0], UriKind.RelativeOrAbsolute));           
+            //url = fileSource[0];
+        }
+        
+
 
     }
 }

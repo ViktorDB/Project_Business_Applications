@@ -18,6 +18,23 @@ namespace MVVMProjectKlas.ViewModel
             _festival = Festival.GetFestival();
         }
 
+        //property toevoegen waaraan we de comboboxen uit de usercontrol tickets aan zullen binden
+        private ObservableCollection<TicketType> _ticketTypes;
+
+        public ObservableCollection<TicketType> TicketTypes
+        {
+            get
+            {
+                //return _ticketTypes;
+                return TicketType.GetTicketTypes();
+            }
+            set
+            {
+                _ticketTypes = value;
+                OnPropertyChanged("TicketTypes"); // property is gewijzigd
+            }
+        }
+
         //property toevoegen waaraan we de listbox uit de usercontrol bands aan zullen binden
         private ObservableCollection<Festival> _festival;
         
@@ -39,19 +56,28 @@ namespace MVVMProjectKlas.ViewModel
             get { return "Festival"; }
         }
 
-        //Lineup wijzigen
+        //festival wijzigen
         public ICommand UpdateFestival
         {
             get
             {
+
                 return new RelayCommand(updateFestival);
             }
         }
 
+        
         private void updateFestival()
         {
             Festival b = new Festival() { FestivalNaam = Festivals[0].FestivalNaam, FestivalPlaats = Festivals[0].FestivalPlaats, StartData = Festivals[0].StartData, EndData = Festivals[0].EndData };
-            Console.WriteLine(Festival.UpdateFestival(b));
+            try
+            {
+                Console.WriteLine(Festival.UpdateFestival(b));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
         
     }

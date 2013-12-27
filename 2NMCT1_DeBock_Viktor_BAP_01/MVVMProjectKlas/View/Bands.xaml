@@ -97,22 +97,22 @@
         				<ColumnDefinition Width="1*"/>
         				<ColumnDefinition Width="1*"/>
         			</Grid.ColumnDefinitions>
-        			<Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="4" Margin="50.4,5.301,8.769,4.02" Grid.ColumnSpan="4"/>
-        			<TextBox Text="{Binding SelectedBand.Twitter}" Grid.Row="6" Grid.Column="8" TextWrapping="Wrap" Margin="3.262,6.659,4.2,2.661" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
-        			<TextBox Text="{Binding SelectedBand.Description}" Grid.Row="7" TextWrapping="Wrap" Grid.RowSpan="2" Margin="50.4,7.339,7.754,1.303" Grid.ColumnSpan="6"/>
-        			<Label Content="Beschrijving" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="6" Margin="50.4,6.659,8.262,2.661" Grid.ColumnSpan="5"/>
-        			<TextBox Text="{Binding SelectedBand.Name}" Grid.Row="5" TextWrapping="Wrap" Margin="50.4,5.98,7.754,3.341" VerticalContentAlignment="Center" Grid.ColumnSpan="6"/>
-        			<Label Content="Genre" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Margin="3.262,2.583,4.708,6.737" Grid.ColumnSpan="4"/>
-        			<ComboBox SelectedItem="{Binding SelectedGenre}" ItemsSource="{Binding Genres}" DisplayMemberPath="Name" Grid.Column="8" Grid.Row="1" Margin="3.262,3.263,5.215,6.058" Grid.ColumnSpan="3"/>
-        			<ListBox SelectedItem="{Binding SelectedGenreListbox}" DisplayMemberPath="Name" ItemsSource="{Binding SelectedBand.Genres}" Grid.Column="8" Grid.Row="2" Grid.RowSpan="3" Margin="3.262,3.942,4.2,4.02" Grid.ColumnSpan="5"/>
-        			<Image Name="insertImage" Stretch="UniformToFill" AllowDrop="True" Grid.Row="1" Source="{Binding SelectedBand.Picture}" Grid.RowSpan="3" Margin="4.708,3.455,3.769,4.507" Grid.ColumnSpan="3" Grid.Column="1"/>
-                    <Button Command="{Binding WijzigPicture}" Content="upload" Grid.Column="4" Grid.Row="3" Margin="1.231,4.621,7.754,4.699" Grid.ColumnSpan="2" Foreground="White"/>
-        			<Label Content="Twitter" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="5" Margin="3.262,5.98,4.2,3.341" Grid.ColumnSpan="5"/>
-        			<Label Content="Facebook" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="7" Margin="3.262,7.339,4.2,1.982" Grid.ColumnSpan="5"/>
-        			<TextBox Text="{Binding SelectedBand.Facebook}" Grid.Row="8" Grid.Column="8" TextWrapping="Wrap" Margin="3.262,8.018,4.2,1.303" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
-                    <Button Command="{Binding UpdateBand}" Content="Wijzig" Grid.Column="9" Grid.Row="9" Margin="2.969,8.697,5,0.623" Grid.ColumnSpan="4" Foreground="White"/>
-                    <Button Command="{Binding AddGenreToBand}" Content="+" Grid.Column="11" Grid.Row="1" Background="#FF83D495" FontWeight="Bold" FontSize="21.333" Foreground="White" RenderTransformOrigin="0.357,0.409" Margin="4.785,3.263,4.708,6.058"/>
-                    <Button Command="{Binding DeleteGenreFromBand}" Content="X" Grid.Column="12" Grid.Row="1" Background="#FFC95656" Foreground="White" Margin="5.292,3.263,4.2,6.058"/>
+        			<Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="4" Margin="30.4,5.301,28.769,4.02" Grid.ColumnSpan="4"/>
+        			<TextBox Text="{Binding SelectedBand.Twitter}" Grid.Row="5" Grid.Column="7" TextWrapping="Wrap" Margin="35.954,38.563,24.2,15.661" VerticalContentAlignment="Center" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
+        			<TextBox Text="{Binding SelectedBand.Description}" Grid.Row="6" TextWrapping="Wrap" Grid.RowSpan="3" Margin="30.4,39.243,27.754,14.303" Grid.ColumnSpan="6"/>
+        			<Label Content="Beschrijving" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="6" Margin="30.4,6.659,28.262,2.661" Grid.ColumnSpan="5"/>
+                    <TextBox Text="{Binding SelectedBand.Name}" Grid.Row="4" TextWrapping="Wrap" Margin="30.4,37.884,27.754,16.341" VerticalContentAlignment="Center" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
+        			<Label Content="Genre" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="7" Margin="35.954,2.583,24.708,6.737" Grid.ColumnSpan="5"/>
+        			<ComboBox SelectedItem="{Binding SelectedGenre}" ItemsSource="{Binding Genres}" DisplayMemberPath="Name" Grid.Column="7" Margin="35.954,35.167,25.215,19.058" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalContentAlignment="Center"/>
+        			<ListBox SelectedItem="{Binding SelectedGenreListbox}" DisplayMemberPath="Name" ItemsSource="{Binding SelectedBand.Genres}" Grid.Column="7" Grid.Row="1" Grid.RowSpan="4" Margin="35.954,35.846,24.2,17.02" Grid.ColumnSpan="6"/>
+                    <Image Name="insertImage" Stretch="UniformToFill" AllowDrop="True" Source="{Binding SelectedBand.Picture}" Grid.RowSpan="4" Margin="37.4,35.359,23.769,17.507" Grid.ColumnSpan="4" Drop="insertImage_Drop"/>
+                    <Button Command="{Binding WijzigPicture}" Content="upload" Grid.Column="3" Grid.Row="2" Margin="33.923,36.525,27.754,17.699" Grid.ColumnSpan="3" Foreground="White" Grid.RowSpan="2"/>
+        			<Label Content="Twitter" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="7" Grid.Row="5" Margin="35.954,5.98,24.2,3.341" Grid.ColumnSpan="6"/>
+        			<Label Content="Facebook" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="7" Grid.Row="7" Margin="35.954,7.339,24.2,1.982" Grid.ColumnSpan="6"/>
+        			<TextBox Text="{Binding SelectedBand.Facebook}" Grid.Row="7" Grid.Column="7" TextWrapping="Wrap" Margin="35.954,39.922,24.2,14.303" VerticalContentAlignment="Center" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
+                    <Button Command="{Binding UpdateBand}" Content="Wijzig" Grid.Row="9" Margin="32.617,2.699,25,6.621" Grid.ColumnSpan="13" Foreground="White"/>
+                    <Button Command="{Binding AddGenreToBand}" Content="+" Grid.Column="10" Background="#FF83D495" FontWeight="Bold" FontSize="21.333" Foreground="White" RenderTransformOrigin="0.357,0.409" Margin="37.477,35.167,24.708,19.058" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <Button Command="{Binding DeleteGenreFromBand}" Content="X" Grid.Column="11" Background="#FFC95656" Foreground="White" Margin="37.985,35.167,24.2,19.058" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         		</Grid>
         	</TabItem>
         	<TabItem x:Name="___TabItem___voeg_toe__" Header="+">
@@ -144,22 +144,22 @@
         				<ColumnDefinition Width="1*"/>
         				<ColumnDefinition Width="1*"/>
         			</Grid.ColumnDefinitions>
-        			<Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="4" Margin="50.4,5.301,8.769,4.02" Grid.ColumnSpan="4"/>
-                    <TextBox Text="{Binding InsertTwitter, Mode=TwoWay}" Grid.Row="6" Grid.Column="8" TextWrapping="Wrap" Margin="3.262,6.659,4.2,2.661" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
-                    <TextBox Text="{Binding InsertDescription, Mode=TwoWay}" Grid.Row="7" TextWrapping="Wrap" Grid.RowSpan="2" Margin="50.4,7.339,7.754,1.303" Grid.ColumnSpan="6"/>
-        			<Label Content="Beschrijving" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="6" Margin="50.4,6.659,8.262,2.661" Grid.ColumnSpan="5"/>
-                    <TextBox Text="{Binding InsertName, Mode=TwoWay}" Grid.Row="5" TextWrapping="Wrap" Margin="50.4,5.98,7.754,3.341" VerticalContentAlignment="Center" Grid.ColumnSpan="6"/>
-        			<Label Content="Genre" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Margin="3.262,2.583,4.708,6.737" Grid.ColumnSpan="4"/>
-                    <ComboBox SelectedItem="{Binding SelectedGenre}" ItemsSource="{Binding Genres}" DisplayMemberPath="Name" Grid.Column="8" Grid.Row="1" Margin="3.262,3.263,5.215,6.058" Grid.ColumnSpan="3"/>
-                    <ListBox SelectedItem="{Binding SelectedGenreListbox}" DisplayMemberPath="Name" ItemsSource="{Binding InsertGenres, Mode=TwoWay}" Grid.Column="8" Grid.Row="2" Grid.RowSpan="3" Margin="3.262,3.942,4.2,4.02" Grid.ColumnSpan="5"/>
-        			<Image Grid.Row="1" Source="Images/no_image.gif" Grid.RowSpan="3" Margin="4.708,3.455,3.769,4.507" Grid.ColumnSpan="3" Grid.Column="1"/>
-        			<Button Content="upload" Grid.Column="4" Grid.Row="3" Margin="1.231,4.621,7.754,4.699" Grid.ColumnSpan="2" Foreground="White"/>
-        			<Label Content="Twitter" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="5" Margin="3.262,5.98,4.2,3.341" Grid.ColumnSpan="5"/>
-        			<Label Content="Facebook" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="8" Grid.Row="7" Margin="3.262,7.339,4.2,1.982" Grid.ColumnSpan="5"/>
-                    <TextBox Text="{Binding InsertFacebook, Mode=TwoWay}" Grid.Row="8" Grid.Column="8" TextWrapping="Wrap" Margin="3.262,8.018,4.2,1.303" VerticalContentAlignment="Center" Grid.ColumnSpan="5"/>
-                    <Button Command="{Binding InsertBand}" Content="Voeg toe" Grid.Column="9" Grid.Row="9" Margin="3.769,8.697,4.2,0.623" Grid.ColumnSpan="4" Foreground="White"/>
-                    <Button Command="{Binding AddInsertGenreToBand}" Content="+" Grid.Column="11" Grid.Row="1" Background="#FF83D495" FontWeight="Bold" FontSize="21.333" Foreground="White" RenderTransformOrigin="0.357,0.409" Margin="4.785,3.263,4.708,6.058"/>
-                    <Button Command="{Binding DeleteInsertGenreFromBand}" Content="X" Grid.Column="12" Grid.Row="1" Background="#FFC95656" Foreground="White" Margin="5.292,3.263,4.2,6.058"/>
+        			<Label Content="Naam" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="4" Margin="30.4,5.301,28.769,4.02" Grid.ColumnSpan="4"/>
+                    <TextBox Text="{Binding InsertTwitter, Mode=TwoWay}" Grid.Row="5" Grid.Column="7" TextWrapping="Wrap" Margin="35.954,38.563,24.2,15.661" VerticalContentAlignment="Center" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
+                    <TextBox Text="{Binding InsertDescription, Mode=TwoWay}" Grid.Row="6" TextWrapping="Wrap" Grid.RowSpan="3" Margin="30.4,39.243,27.754,14.303" Grid.ColumnSpan="6"/>
+        			<Label Content="Beschrijving" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Row="6" Margin="30.4,6.659,28.262,2.661" Grid.ColumnSpan="5"/>
+                    <TextBox Text="{Binding InsertName, Mode=TwoWay}" Grid.Row="4" TextWrapping="Wrap" Margin="30.4,37.884,27.754,16.341" VerticalContentAlignment="Center" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
+        			<Label Content="Genre" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="7" Margin="35.954,2.583,24.708,6.737" Grid.ColumnSpan="5"/>
+                    <ComboBox SelectedItem="{Binding SelectedGenre}" ItemsSource="{Binding Genres}" DisplayMemberPath="Name" Grid.Column="7" Margin="35.954,35.167,25.215,19.058" Grid.ColumnSpan="4" Grid.RowSpan="2"/>
+                    <ListBox SelectedItem="{Binding SelectedGenreListbox}" DisplayMemberPath="Name" ItemsSource="{Binding InsertGenres, Mode=TwoWay}" Grid.Column="7" Grid.Row="1" Grid.RowSpan="4" Margin="35.954,35.846,24.2,17.02" Grid.ColumnSpan="6"/>
+        			<Image Source="Images/bands/no_image.gif" Grid.RowSpan="4" Margin="37.4,35.359,23.769,17.507" Grid.ColumnSpan="4"/>
+                    <Button  Command="{Binding WijzigPicture}" Content="upload" Grid.Column="3" Grid.Row="2" Margin="33.923,36.525,27.754,17.699" Grid.ColumnSpan="3" Foreground="White" Grid.RowSpan="2"/>
+        			<Label Content="Twitter" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="7" Grid.Row="5" Margin="35.954,5.98,24.2,3.341" Grid.ColumnSpan="6"/>
+        			<Label Content="Facebook" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="7" Grid.Row="7" Margin="35.954,7.339,24.2,1.982" Grid.ColumnSpan="6"/>
+                    <TextBox Text="{Binding InsertFacebook, Mode=TwoWay}" Grid.Row="7" Grid.Column="7" TextWrapping="Wrap" Margin="35.954,39.922,24.2,14.303" VerticalContentAlignment="Center" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
+                    <Button Command="{Binding InsertBand}" Content="Voeg toe" Grid.Row="9" Margin="33,1.53,24.2,7.79" Grid.ColumnSpan="13" Foreground="White"/>
+                    <Button Command="{Binding AddInsertGenreToBand}" Content="+" Grid.Column="10" Background="#FF83D495" FontWeight="Bold" FontSize="21.333" Foreground="White" RenderTransformOrigin="0.357,0.409" Margin="37.477,35.167,24.708,19.058" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <Button Command="{Binding DeleteInsertGenreFromBand}" Content="X" Grid.Column="11" Background="#FFC95656" Foreground="White" Margin="37.985,35.167,24.2,19.058" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         		</Grid>
         	</TabItem>
         </TabControl>

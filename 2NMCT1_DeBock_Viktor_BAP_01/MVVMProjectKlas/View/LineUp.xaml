@@ -96,18 +96,18 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <Label Content="Kies de dag" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,4.167,32.8,5.143" Grid.ColumnSpan="4"/>
-                    <Label Content="Kies de stage" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,4.857,32.8,4.454" Grid.ColumnSpan="4" Grid.Row="1"/>
-                    <ComboBox SelectedValue="{Binding SelectedItemLineUp.CStage.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedItemLineUp.Date}" ItemsSource="{Binding DiffLineUpDagen}" Grid.Column="3" Margin="26.5,4.167,31.8,5.143" VerticalContentAlignment="Center" Grid.ColumnSpan="7"/>
-                    <ComboBox SelectedValue="{Binding SelectedItemLineUp.CStage.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedItemLineUp.CStage.Name}" ItemsSource="{Binding Stages}" DisplayMemberPath="Name" Grid.Column="3" Margin="26.5,4.857,31.8,4.454" VerticalContentAlignment="Center" Grid.ColumnSpan="7" Grid.Row="1"/>
-                    <Label Content="Bands" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,4.88,32.8,3.763" Grid.ColumnSpan="4"/>
-                    <ComboBox SelectedValue="{Binding SelectedItemLineUp.CBand.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedItemLineUp.CBand.Name}" ItemsSource="{Binding Bands}" DisplayMemberPath="Name" Grid.Column="3" Grid.Row="2" Margin="26.5,4.88,31.8,3.763" VerticalContentAlignment="Center" Grid.ColumnSpan="7"/>
-                    <Label Content="tijd" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,5.57,32.8,3.073" Grid.ColumnSpan="4"/>
-                    <TextBox Text="{Binding SelectedItemLineUp.From}" Grid.Column="4" Grid.Row="3" Margin="25,5.57,31.3,3.073" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
-                    <TextBox Text="{Binding SelectedItemLineUp.Until}" Grid.Column="7" Grid.Row="3" Margin="25,5.57,29.8,3.073" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
-                    <Label Content="van" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="3" Margin="25,5.57,32.3,3.073" Grid.ColumnSpan="2"/>
-                    <Label Content="tot" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="6" Margin="25,5.57,30.8,3.073" Grid.ColumnSpan="2"/>
-                    <Button Command="{Binding WijzigLineUp}" Content="Wijzig" Grid.Column="5" Grid.Row="8" Margin="25,5.686,28.6,3.623" Grid.ColumnSpan="5" Foreground="White"/>
+                    <Label Content="Kies de dag" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,2.274,32.8,7.037" Grid.ColumnSpan="4" Grid.Row="1"/>
+                    <Label Content="Kies de stage" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,2.963,32.8,6.347" Grid.ColumnSpan="4" Grid.Row="2"/>
+                    <ComboBox SelectedValue="{Binding SelectedItemLineUp.CStage.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedItemLineUp.Date}" ItemsSource="{Binding DiffLineUpDagen}" Grid.Column="3" Margin="26.5,2.274,31.8,7.037" VerticalContentAlignment="Center" Grid.ColumnSpan="7" Grid.Row="1"/>
+                    <ComboBox SelectedValue="{Binding SelectedItemLineUp.CStage.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedItemLineUp.CStage.Name}" ItemsSource="{Binding Stages}" DisplayMemberPath="Name" Grid.Column="3" Margin="26.5,2.963,31.8,6.347" VerticalContentAlignment="Center" Grid.ColumnSpan="7" Grid.Row="2"/>
+                    <Label Content="Bands" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,2.987,32.8,5.656" Grid.ColumnSpan="4"/>
+                    <ComboBox SelectedValue="{Binding SelectedItemLineUp.CBand.ID}" SelectedValuePath="ID" SelectedItem="{Binding SelectedItemLineUp.CBand.Name}" ItemsSource="{Binding Bands}" DisplayMemberPath="Name" Grid.Column="3" Grid.Row="3" Margin="26.5,2.987,31.8,5.656" VerticalContentAlignment="Center" Grid.ColumnSpan="7"/>
+                    <Label Content="tijd" Grid.Row="4" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,3.677,32.8,4.967" Grid.ColumnSpan="4"/>
+                    <TextBox Text="{Binding SelectedItemLineUp.From}" Grid.Column="4" Grid.Row="4" Margin="25,3.677,31.3,4.967" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                    <TextBox Text="{Binding SelectedItemLineUp.Until}" Grid.Column="7" Grid.Row="4" Margin="25,3.677,29.8,4.967" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                    <Label Content="van" Grid.Row="4" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="3" Margin="25,3.677,32.3,4.967" Grid.ColumnSpan="2"/>
+                    <Label Content="tot" Grid.Row="4" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="6" Margin="25,3.677,30.8,4.967" Grid.ColumnSpan="2"/>
+                    <Button Command="{Binding WijzigLineUp}" Content="Wijzig" Grid.Row="5" Margin="33.5,5.366,31.6,3.943" Grid.ColumnSpan="10" Foreground="White"/>
                 </Grid>
             </TabItem>
             <TabItem Header="+">
@@ -135,18 +135,18 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <Label Content="Kies de dag" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,4.167,34.8,5.143" Grid.ColumnSpan="4"/>
-                    <Label Content="Kies de stage" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,4.857,34.8,4.454" Grid.ColumnSpan="4" Grid.Row="1"/>
-                    <ComboBox SelectedItem="{Binding InsertDate}" ItemsSource="{Binding DiffLineUpDagen}" Grid.Column="3" Margin="26.5,4.167,31.8,5.143" VerticalContentAlignment="Center" Grid.ColumnSpan="7"/>
-                    <ComboBox SelectedItem="{Binding InsertStage}" ItemsSource="{Binding Stages}" DisplayMemberPath="Name" Grid.Column="3" Margin="26.5,4.857,31.8,4.454" VerticalContentAlignment="Center" Grid.ColumnSpan="7" Grid.Row="1"/>
-                    <Label Content="Bands" Grid.Row="2" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,4.88,34.8,3.763" Grid.ColumnSpan="4"/>
-                    <ComboBox SelectedItem="{Binding InsertBand}" ItemsSource="{Binding Bands}" DisplayMemberPath="Name" Grid.Column="3" Grid.Row="2" Margin="26.5,4.88,31.8,3.763" VerticalContentAlignment="Center" Grid.ColumnSpan="7"/>
-                    <Label Content="tijd" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,5.57,34.8,3.073" Grid.ColumnSpan="4"/>
-                    <TextBox Text="{Binding InsertFrom}" Grid.Column="4" Grid.Row="3" Margin="27,5.57,33.3,3.073" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
-                    <TextBox Text="{Binding InsertUntil}" Grid.Column="7" Grid.Row="3" Margin="28.5,5.57,31.8,3.073" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
-                    <Label Content="van" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="3" Margin="26.5,5.57,34.3,3.073" Grid.ColumnSpan="2"/>
-                    <Label Content="tot" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="6" Margin="28,5.57,32.8,3.073" Grid.ColumnSpan="2"/>
-                    <Button Command="{Binding AddLineUp}" Content="Voeg toe" Grid.Column="5" Grid.Row="8" Margin="27.5,9.686,31.8,-0.377" Grid.ColumnSpan="5" Foreground="White"/>
+                    <Label Content="Kies de dag" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,2.274,34.8,7.037" Grid.ColumnSpan="4" Grid.Row="1"/>
+                    <Label Content="Kies de stage" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,2.963,34.8,6.347" Grid.ColumnSpan="4" Grid.Row="2"/>
+                    <ComboBox SelectedItem="{Binding InsertDate}" ItemsSource="{Binding DiffLineUpDagen}" Grid.Column="3" Margin="26.5,2.274,31.8,7.037" VerticalContentAlignment="Center" Grid.ColumnSpan="7" Grid.Row="1"/>
+                    <ComboBox SelectedItem="{Binding InsertStage}" ItemsSource="{Binding Stages}" DisplayMemberPath="Name" Grid.Column="3" Margin="26.5,2.963,31.8,6.347" VerticalContentAlignment="Center" Grid.ColumnSpan="7" Grid.Row="2"/>
+                    <Label Content="Bands" Grid.Row="3" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,2.987,34.8,5.656" Grid.ColumnSpan="4"/>
+                    <ComboBox SelectedItem="{Binding InsertBand}" ItemsSource="{Binding Bands}" DisplayMemberPath="Name" Grid.Column="3" Grid.Row="3" Margin="26.5,2.987,31.8,5.656" VerticalContentAlignment="Center" Grid.ColumnSpan="7"/>
+                    <Label Content="tijd" Grid.Row="4" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Margin="25,3.677,34.8,4.967" Grid.ColumnSpan="4"/>
+                    <TextBox Text="{Binding InsertFrom}" Grid.Column="4" Grid.Row="4" Margin="27,3.677,33.3,4.967" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                    <TextBox Text="{Binding InsertUntil}" Grid.Column="7" Grid.Row="4" Margin="28.5,3.677,31.8,4.967" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                    <Label Content="van" Grid.Row="4" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="3" Margin="26.5,3.677,34.3,4.967" Grid.ColumnSpan="2"/>
+                    <Label Content="tot" Grid.Row="4" Background="{x:Null}" Foreground="#FF398A97" FontSize="16" Grid.Column="6" Margin="28,3.677,32.8,4.967" Grid.ColumnSpan="2"/>
+                    <Button Command="{Binding AddLineUp}" Content="Voeg toe" Grid.Column="0" Grid.Row="5" Margin="33.5,5.366,31.6,3.943" Grid.ColumnSpan="10" Foreground="White"/>
                 </Grid>
             </TabItem>
         </TabControl>

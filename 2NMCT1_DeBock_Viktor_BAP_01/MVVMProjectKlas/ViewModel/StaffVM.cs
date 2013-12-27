@@ -186,9 +186,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void insertStaff()
         {
-            Contactperson c = new Contactperson() {  Name = InsertName, Company = InsertCompany, GetalType = Convert.ToInt32(InsertJobRole.ID), City = InsertCity, Email = InsertEmail, Phone = InsertPhone, Cellphone = InsertCellphone, Adres = InsertAdres };
-            Console.WriteLine(Contactperson.InsertContactperson(c));
-            OnPropertyChanged("Staff");
+            try
+            {
+                Contactperson c = new Contactperson() { Name = InsertName, Company = InsertCompany, GetalType = Convert.ToInt32(InsertJobRole.ID), City = InsertCity, Email = InsertEmail, Phone = InsertPhone, Cellphone = InsertCellphone, Adres = InsertAdres };
+                Console.WriteLine(Contactperson.InsertContactperson(c));
+                OnPropertyChanged("Staff");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Contactpersoon wijzigen
@@ -202,9 +209,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void updateStaff()
         {
-            Contactperson c = new Contactperson() { ID = SelectedStaff.ID, Name = SelectedStaff.Name, Company = SelectedStaff.Company, GetalType = Convert.ToInt32(SelectedStaff.JobRole.ID), City = SelectedStaff.City, Email = SelectedStaff.Email, Phone = SelectedStaff.Phone, Cellphone = SelectedStaff.Cellphone, Adres = SelectedStaff.Adres };
-            Console.WriteLine(Contactperson.UpdateContactperson(c));
-            OnPropertyChanged("Staff");
+            try
+            {
+                Contactperson c = new Contactperson() { ID = SelectedStaff.ID, Name = SelectedStaff.Name, Company = SelectedStaff.Company, GetalType = Convert.ToInt32(SelectedStaff.JobRole.ID), City = SelectedStaff.City, Email = SelectedStaff.Email, Phone = SelectedStaff.Phone, Cellphone = SelectedStaff.Cellphone, Adres = SelectedStaff.Adres };
+                Console.WriteLine(Contactperson.UpdateContactperson(c));
+                OnPropertyChanged("Staff");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Contactpersoon wijzigen
@@ -218,9 +232,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void deleteStaff()
         {
-            Contactperson c = new Contactperson() { ID = SelectedStaff.ID, Name = SelectedStaff.Name, Company = SelectedStaff.Company, GetalType = Convert.ToInt32(SelectedStaff.JobRole.ID), City = SelectedStaff.City, Email = SelectedStaff.Email, Phone = SelectedStaff.Phone, Cellphone = SelectedStaff.Cellphone, Adres = SelectedStaff.Adres };
-            Console.WriteLine(Contactperson.DeleteContactperson(c));
-            OnPropertyChanged("Staff");
+            try
+            {
+                Contactperson c = new Contactperson() { ID = SelectedStaff.ID, Name = SelectedStaff.Name, Company = SelectedStaff.Company, GetalType = Convert.ToInt32(SelectedStaff.JobRole.ID), City = SelectedStaff.City, Email = SelectedStaff.Email, Phone = SelectedStaff.Phone, Cellphone = SelectedStaff.Cellphone, Adres = SelectedStaff.Adres };
+                Console.WriteLine(Contactperson.DeleteContactperson(c));
+                OnPropertyChanged("Staff");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
     }

@@ -4,6 +4,8 @@ using MVVMProjectKlas.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,7 +28,6 @@ namespace MVVMProjectKlas.ViewModel
             //_bands = Band.GetBands();
             //_genres = Genre.GetGenres();
             InsertGenres = new ObservableCollection<Genre>();
-
         }
 
         //property toevoegen waaraan we de listbox uit de usercontrol bands aan zullen binden
@@ -197,16 +198,23 @@ namespace MVVMProjectKlas.ViewModel
 
         private void addGenreToBand()
         {
-            if (SelectedBand.Genres == null)
+            try
             {
-                SelectedBand.Genres.Add(SelectedGenre);
-            }
-            else
-            {
-                if (SelectedBand.Genres.Where(Genres => Genres.ID == SelectedGenre.ID).Any() == false)
+                if (SelectedBand.Genres == null)
                 {
                     SelectedBand.Genres.Add(SelectedGenre);
-                }   
+                }
+                else
+                {
+                    if (SelectedBand.Genres.Where(Genres => Genres.ID == SelectedGenre.ID).Any() == false)
+                    {
+                        SelectedBand.Genres.Add(SelectedGenre);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
             }
         }
 
@@ -249,7 +257,14 @@ namespace MVVMProjectKlas.ViewModel
 
         private void deleteInsertGenreFromBand()
         {
-            InsertGenres.Remove(SelectedGenreListbox);
+            try
+            {
+                InsertGenres.Remove(SelectedGenreListbox);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Genre Verwijderen van band
@@ -263,7 +278,14 @@ namespace MVVMProjectKlas.ViewModel
 
         private void deleteGenreFromBand()
         {
+            try
+            {
                 SelectedBand.Genres.Remove(SelectedGenreListbox);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Band wijzigen
@@ -277,25 +299,35 @@ namespace MVVMProjectKlas.ViewModel
 
         private void updateBand()
         {
-            ObservableCollection<String> GenreIdGetallen = new ObservableCollection<string>();
-            foreach(Genre genre in SelectedBand.Genres)
+            try
             {
-                string getal = genre.ID;
-                GenreIdGetallen.Add(getal);
+                ObservableCollection<String> GenreIdGetallen = new ObservableCollection<string>();
+                foreach (Genre genre in SelectedBand.Genres)
+                {
+                    string getal = genre.ID;
+                    GenreIdGetallen.Add(getal);
+                }
+
+
+                Band b = new Band() { ID = SelectedBand.ID, Description = SelectedBand.Description, Name = SelectedBand.Name, Picture = PathFile, Facebook = SelectedBand.Facebook, Twitter = SelectedBand.Twitter, GenreGetallen = GenreIdGetallen, StandardGenreGetal = 1 };
+                Console.WriteLine(Band.UpdateBand(b));
+
+                Console.WriteLine(Band.DeleteAllBandGenres(b));
+
+                foreach (string genreGetal in GenreIdGetallen)
+                {
+                    Console.WriteLine(Band.UpdateBandGenre(b, genreGetal));
+                }
+
+                OnPropertyChanged("Bands");
+
+                PathFile = null;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
             }
 
-            
-            Band b = new Band() { ID = SelectedBand.ID, Description = SelectedBand.Description, Name = SelectedBand.Name, Picture = "ImageSource", Facebook = SelectedBand.Facebook, Twitter = SelectedBand.Facebook, GenreGetallen = GenreIdGetallen, StandardGenreGetal = 1 };
-            Console.WriteLine(Band.UpdateBand(b));
-
-            Console.WriteLine(Band.DeleteAllBandGenres(b));
-
-            foreach (string genreGetal in GenreIdGetallen)
-            {
-                Console.WriteLine(Band.UpdateBandGenre(b, genreGetal));
-            }
-
-            OnPropertyChanged("Bands");
         }
 
         //Band toevoegen
@@ -309,24 +341,33 @@ namespace MVVMProjectKlas.ViewModel
 
         private void insertBand()
         {
-            ObservableCollection<String> GenreIdGetallen = new ObservableCollection<string>();
-            foreach (Genre genre in InsertGenres)
+            try
             {
-                string getal = genre.ID;
-                GenreIdGetallen.Add(getal);
+                ObservableCollection<String> GenreIdGetallen = new ObservableCollection<string>();
+                foreach (Genre genre in InsertGenres)
+                {
+                    string getal = genre.ID;
+                    GenreIdGetallen.Add(getal);
+                }
+
+
+                Band b = new Band() { Name = insertName, Description = insertDescription, Facebook = InsertFacebook, Twitter = InsertTwitter, Picture = PathFile, GenreGetallen = GenreIdGetallen, StandardGenreGetal = 1 };
+
+                Console.WriteLine(Band.InsertBand(b));
+                Console.WriteLine(Band.GetLastRowId());
+
+                foreach (string genreGetal in GenreIdGetallen)
+                {
+                    Console.WriteLine(Band.InsertBandGenre(b, genreGetal));
+                }
+                OnPropertyChanged("Bands");
+
+                PathFile = null;
             }
-
-
-            Band b = new Band() { Name = insertName, Description = insertDescription, Facebook = InsertFacebook, Twitter = InsertTwitter, Picture = "ImageSource", GenreGetallen = GenreIdGetallen, StandardGenreGetal = 1};
-            
-            Console.WriteLine(Band.InsertBand(b));
-            Console.WriteLine(Band.GetLastRowId());
-
-            foreach (string genreGetal in GenreIdGetallen)
+            catch (Exception e)
             {
-                Console.WriteLine(Band.InsertBandGenre(b, genreGetal));
+                Console.WriteLine("An error occurred: '{0}'", e);
             }
-            OnPropertyChanged("Bands");
         }
 
         public ICommand WijzigPicture
@@ -341,22 +382,26 @@ namespace MVVMProjectKlas.ViewModel
 
         private void wijzigPicture()
         {
-            // Create an instance of the open file dialog box.
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            // Set filter options and filter index.
-            openFileDialog1.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory + "Images_Band";
-
-            //string pathname = openFileDialog1.FileName;
-            openFileDialog1.ShowDialog();
-
-            String pathfile = "Images/" + openFileDialog1.SafeFileName;
-            
-
-            PathFile = pathfile;
+            try
+            {
+                // Create an instance of the open file dialog box.
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                // Set filter options and filter index.
+                openFileDialog1.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory + "Images_Band";
 
 
+                openFileDialog1.ShowDialog();
 
+                string pathname = openFileDialog1.SafeFileName.ToString();
+
+                PathFile = "Images/bands/" + pathname;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
+
 
     }
 }

@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="GalaSoft.MvvmLight.Extras.WPF45, Version=4.1.24.16411, Culture=neutral, PublicKeyToken=0e27b6f8be9b2ef7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\WPF45\GalaSoft.MvvmLight.Extras.WPF45.dll</HintPath>
@@ -49,8 +50,10 @@
       <HintPath>..\..\..\..\PresentationUI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\WPF45\System.Windows.Interactivity.dll</HintPath>
@@ -81,6 +84,8 @@
     <Compile Include="Model\Genre.cs" />
     <Compile Include="Model\LineUp.cs" />
     <Compile Include="Model\Stage.cs" />
+    <Compile Include="ViewModel\ImageConverter.cs" />
+    <Compile Include="ViewModel\StringToImageConverter.cs" />
     <Compile Include="Model\Ticket.cs" />
     <Compile Include="Model\TicketType.cs" />
     <Compile Include="ViewModel\InstellingenVM.cs" />
@@ -185,10 +190,34 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\no_image.gif" />
+    <Resource Include="View\Images\bands\no_image.gif" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Images\bands\eminem.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\bands\davidguetta.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\bands\drake.jpeg" />
+    <Resource Include="View\Images\bands\lilwayne.jpg" />
+    <Resource Include="View\Images\bands\U2.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\bands\brunomars.jpg" />
+    <Resource Include="View\Images\bands\daftpunk.png" />
+    <Resource Include="View\Images\bands\jayz.jpeg" />
+    <Resource Include="View\Images\bands\justintimberlake.jpeg" />
+    <Resource Include="View\Images\bands\kendricklamar.jpg" />
+    <Resource Include="View\Images\bands\ladygaga.jpeg" />
+    <Resource Include="View\Images\bands\lilwayne.jpeg" />
+    <Resource Include="View\Images\bands\macklemore.jpeg" />
+    <Resource Include="View\Images\bands\psy.jpg" />
+    <Resource Include="View\Images\bands\rickross.jpeg" />
+    <Resource Include="View\Images\bands\rihanna.jpeg" />
+    <Resource Include="View\Images\bands\shm.jpg" />
+    <Resource Include="View\Images\bands\taylorswift.png" />
+    <Resource Include="View\Images\bands\william.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

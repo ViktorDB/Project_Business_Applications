@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Configuration;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace MVVMProjectKlas.Model
 {
-    class Contactperson
+    class Contactperson : IDataErrorInfo
     {
         private string id;
 
@@ -20,6 +23,9 @@ namespace MVVMProjectKlas.Model
             set { id = value; }
         }
 
+        [Required(ErrorMessage = "De naam is verplicht")]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage = "Er zijn geen speciale tekens toegelaten")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "De naam moet tussen de 3 en 50 karakters bevatten ")]
         private string name;
 
         public string Name
@@ -293,6 +299,33 @@ namespace MVVMProjectKlas.Model
             return affected;
 
         }
-        
+
+
+        public string Error
+        {
+            get { return null; }
+        }
+
+        public bool IsValid()
+        {
+            return Validator.TryValidateObject(this, new ValidationContext(this, null, null), null, true);
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                try
+                {
+                    object value = this.GetType().GetProperty(columnName).GetValue(this);
+                    Validator.ValidateProperty(value, new ValidationContext(this, null, null) { MemberName = columnName });
+                }
+                catch (ValidationException ex)
+                {
+                    return ex.Message;
+                }
+                return String.Empty;
+            }
+        }
     }
 }

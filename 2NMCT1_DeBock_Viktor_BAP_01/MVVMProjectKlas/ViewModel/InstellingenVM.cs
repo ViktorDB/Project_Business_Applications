@@ -247,9 +247,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void insertStage()
         {
-            Stage s = new Stage() { Name = InsertStageName};
-            Console.WriteLine(Stage.InsertStage(s));
-            OnPropertyChanged("Stages");
+            try
+            {
+                Stage s = new Stage() { Name = InsertStageName };
+                Console.WriteLine(Stage.InsertStage(s));
+                OnPropertyChanged("Stages");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Stage wijzigen
@@ -263,9 +270,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void updateStage()
         {
-            Stage s = new Stage() { ID = UpdateStageCombobox.ID, Name = UpdateStageName };
-            Console.WriteLine(Stage.UpdateStage(s));
-            OnPropertyChanged("Stages");
+            try
+            {
+                Stage s = new Stage() { ID = UpdateStageCombobox.ID, Name = UpdateStageName };
+                Console.WriteLine(Stage.UpdateStage(s));
+                OnPropertyChanged("Stages");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Genre toevoegen
@@ -279,9 +293,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void insertGenre()
         {
-            Genre g = new Genre() { Name = InsertGenreName };
-            Console.WriteLine(Genre.InsertGenre(g));
-            OnPropertyChanged("Genres");
+            try
+            {
+                Genre g = new Genre() { Name = InsertGenreName };
+                Console.WriteLine(Genre.InsertGenre(g));
+                OnPropertyChanged("Genres");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //Genre wijzigen
@@ -295,9 +316,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void updateGenre()
         {
-            Genre g = new Genre() { ID = UpdateGenreCombobox.ID, Name = UpdateGenreName };
-            Console.WriteLine(Genre.UpdateGenre(g));
-            OnPropertyChanged("Genres");
+            try
+            {
+                Genre g = new Genre() { ID = UpdateGenreCombobox.ID, Name = UpdateGenreName };
+                Console.WriteLine(Genre.UpdateGenre(g));
+                OnPropertyChanged("Genres");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //staff toevoegen
@@ -311,9 +339,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void insertStaff()
         {
-            ContactpersonType s = new ContactpersonType() { Name = InsertStaffName };
-            Console.WriteLine(ContactpersonType.InsertStaff(s));
-            OnPropertyChanged("ContactPersonTypes");
+            try
+            {
+                ContactpersonType s = new ContactpersonType() { Name = InsertStaffName };
+                Console.WriteLine(ContactpersonType.InsertStaff(s));
+                OnPropertyChanged("ContactPersonTypes");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //staff wijzigen
@@ -327,9 +362,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void updateStaff()
         {
-            ContactpersonType c = new ContactpersonType() { ID = UpdateStaffCombobox.ID, Name = UpdateStaffName };
-            Console.WriteLine(ContactpersonType.UpdateStaff(c));
-            OnPropertyChanged("ContactPersonTypes");
+            try
+            {
+                ContactpersonType c = new ContactpersonType() { ID = UpdateStaffCombobox.ID, Name = UpdateStaffName };
+                Console.WriteLine(ContactpersonType.UpdateStaff(c));
+                OnPropertyChanged("ContactPersonTypes");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //TicketType toevoegen
@@ -343,9 +385,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void insertTicketType()
         {
-            TicketType t = new TicketType() { Name = InsertTicketName, Price = InsertTicketPrice, AvailableTickets = InsertTicketNumber };
-            Console.WriteLine(TicketType.InsertTicketType(t));
-            OnPropertyChanged("TicketTypes");
+            try
+            {
+                TicketType t = new TicketType() { Name = InsertTicketName, Price = InsertTicketPrice, AvailableTickets = InsertTicketNumber };
+                Console.WriteLine(TicketType.InsertTicketType(t));
+                OnPropertyChanged("TicketTypes");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
 
         //TicketType wijzigen
@@ -359,9 +408,16 @@ namespace MVVMProjectKlas.ViewModel
 
         private void updateTicketType()
         {
-            TicketType t = new TicketType() { ID = UpdateTicketCombobox.ID, Name = UpdateTicketName, Price = UpdateTicketPrice, AvailableTickets = UpdateTicketNumber };
-            Console.WriteLine(TicketType.UpdateTicketType(t));
-            OnPropertyChanged("TicketTypes");
+            try
+            {
+                TicketType t = new TicketType() { ID = UpdateTicketCombobox.ID, Name = UpdateTicketName, Price = UpdateTicketPrice, AvailableTickets = UpdateTicketNumber };
+                Console.WriteLine(TicketType.UpdateTicketType(t));
+                OnPropertyChanged("TicketTypes");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: '{0}'", e);
+            }
         }
     }
 }
