@@ -222,6 +222,7 @@ namespace MVVMProjectKlas.Model
 
         }
 
+        //lineup toevoegen
         public static int InsertLineUp(LineUp b)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -270,6 +271,7 @@ namespace MVVMProjectKlas.Model
 
         }
 
+        //methode om dag uit lineupt te verwijderen
         public static int DeleteDayFromLineUp(DateTime b)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -297,6 +299,7 @@ namespace MVVMProjectKlas.Model
 
         }
 
+        //methode om uit de lineup te verwijderen
         public static int DeleteRowLineUp(LineUp b)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -324,6 +327,7 @@ namespace MVVMProjectKlas.Model
 
         }
 
+        //de methode om de lineup te filteren op dag
         public static ObservableCollection<LineUp> FilterLineUp(DateTime b)
         {
             ObservableCollection<LineUp> lijst = new ObservableCollection<LineUp>();

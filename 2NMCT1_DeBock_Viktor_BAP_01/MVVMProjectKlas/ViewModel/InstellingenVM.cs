@@ -42,7 +42,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        //property toevoegen waaraan we de comboboxen uit de usercontrol instellingen aan zullen binden
+        //property toevoegen waaraan we de combobox uit de usercontrol instellingen aan zullen binden
         private ObservableCollection<TicketType> _ticketTypes;
 
         public ObservableCollection<TicketType> TicketTypes
@@ -59,7 +59,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        //property toevoegen waaraan we de comboboxen uit de usercontrol instellingen aan zullen binden
+        //property toevoegen waaraan we de combobox uit de usercontrol instellingen aan zullen binden
         private ObservableCollection<ContactpersonType> _contactPersonTypes;
 
         public ObservableCollection<ContactpersonType> ContactPersonTypes
@@ -76,7 +76,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        //property toevoegen waaraan we de comboboxen uit de usercontrol instellingen aan zullen binden
+        //property toevoegen waaraan we de combobox uit de usercontrol instellingen aan zullen binden
         private ObservableCollection<Stage> _stages;
 
         public ObservableCollection<Stage> Stages

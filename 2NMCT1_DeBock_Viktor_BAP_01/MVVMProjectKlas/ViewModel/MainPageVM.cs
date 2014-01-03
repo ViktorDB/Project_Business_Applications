@@ -18,7 +18,7 @@ namespace MVVMProjectKlas.ViewModel
             _festival = Festival.GetFestival();
         }
 
-        //property toevoegen waaraan we de comboboxen uit de usercontrol tickets aan zullen binden
+        //property toevoegen waaraan we de listbox uit de usercontrol mainpage aan zullen binden
         private ObservableCollection<TicketType> _ticketTypes;
 
         public ObservableCollection<TicketType> TicketTypes
@@ -35,7 +35,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        //property toevoegen waaraan we de listbox uit de usercontrol bands aan zullen binden
+        //property toevoegen waaraan we de textbox uit de usercontrol mainpage aan zullen binden
         private ObservableCollection<Festival> _festival;
         
         public ObservableCollection<Festival> Festivals

@@ -45,7 +45,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        //property toevoegen waaraan we de comboboxen uit de usercontrol tickets aan zullen binden
+        //property toevoegen waaraan we de combobox uit de usercontrol tickets aan zullen binden
         private ObservableCollection<TicketType> _ticketTypes;
 
         public ObservableCollection<TicketType> TicketTypes
@@ -220,7 +220,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        //Tickets exporteren
+        //Ticket exporteren
         public ICommand ExportTickets
         {
             get

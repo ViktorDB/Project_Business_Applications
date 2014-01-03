@@ -143,6 +143,8 @@ namespace MVVMProjectKlas.Model
             return lijst;
         }
 
+
+        //methode om de bands te updaten.
         public static int UpdateBand(Band b)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -278,6 +280,8 @@ namespace MVVMProjectKlas.Model
 
         }
 
+
+        //methode om de genres van de bands te updaten
         public static int UpdateBandGenre(Band b, String genreGetal)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -310,6 +314,7 @@ namespace MVVMProjectKlas.Model
             return affected;
         }
 
+        //methode om de genres van de bands te verwijderen
         public static int DeleteAllBandGenres(Band b)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -336,6 +341,7 @@ namespace MVVMProjectKlas.Model
             return affected;
         }
 
+        //methode om een band toe te voegen
         public static int InsertBand(Band b)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -405,6 +411,7 @@ namespace MVVMProjectKlas.Model
             return laatsteID;
         }
 
+        //methode om een genre toe te voegen aan een nieuwe band
         public static int InsertBandGenre(Band b, String genreGetal)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;

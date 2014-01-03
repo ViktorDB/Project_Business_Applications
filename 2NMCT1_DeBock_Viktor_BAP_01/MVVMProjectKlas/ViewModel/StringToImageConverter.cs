@@ -11,6 +11,7 @@ namespace Oefening1.View.converters
 {
     class StringToImageConverter : IValueConverter
     {
+        //hier ook geprobeerd op mijn images op te slaan in mijn database maar heb het toch anders gedaan
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             if (value != null)

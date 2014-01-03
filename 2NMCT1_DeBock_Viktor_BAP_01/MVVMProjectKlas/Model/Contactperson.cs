@@ -23,6 +23,7 @@ namespace MVVMProjectKlas.Model
             set { id = value; }
         }
 
+        //geprobeerd om met data validation te werken maar het wou niet werken
         [Required(ErrorMessage = "De naam is verplicht")]
         [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage = "Er zijn geen speciale tekens toegelaten")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "De naam moet tussen de 3 en 50 karakters bevatten ")]
@@ -98,7 +99,7 @@ namespace MVVMProjectKlas.Model
             set { getalType = value; }
         }
 
-        //methode om bands uit de database te gaan ophalen
+        //methode om staff uit de database te gaan ophalen
 
         public static ObservableCollection<Contactperson> GetStaff()
         {
@@ -144,6 +145,7 @@ namespace MVVMProjectKlas.Model
             return lijst;
         }
 
+        //methode om contactpersoon toe te voegen
         public static int InsertContactperson(Contactperson c)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -206,6 +208,7 @@ namespace MVVMProjectKlas.Model
 
         }
 
+        //methode om contactpersoon de updaten
         public static int UpdateContactperson(Contactperson c)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -273,6 +276,8 @@ namespace MVVMProjectKlas.Model
 
         }
 
+
+        //methode om contactpersoon te verwijderen
         public static int DeleteContactperson(Contactperson c)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;

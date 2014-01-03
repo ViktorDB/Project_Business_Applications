@@ -27,7 +27,7 @@ namespace MVVMProjectKlas.Model
             set { name = value; }
         }
 
-        //methode om bands uit de database te gaan ophalen
+        //methode om genres uit de database te gaan ophalen
 
         public static ObservableCollection<Genre> GetGenres()
         {
@@ -47,6 +47,7 @@ namespace MVVMProjectKlas.Model
             return lijst;
         }
 
+        //methode om genre toe te voegen aan de database
         public static int InsertGenre(Genre g)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -74,6 +75,7 @@ namespace MVVMProjectKlas.Model
 
         }
 
+        //methode om genre aan te wijzigen
         public static int UpdateGenre(Genre g)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;

@@ -47,6 +47,7 @@ namespace MVVMProjectKlas.Model
             return lijst;
         }
 
+        //methode om staff toe te voegen
         public static int InsertStaff(ContactpersonType s)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -74,6 +75,7 @@ namespace MVVMProjectKlas.Model
 
         }
 
+        //methode om staff te updaten
         public static int UpdateStaff(ContactpersonType c)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;

@@ -100,7 +100,7 @@ namespace MVVMProjectKlas.Model
             return lijst;
         }
 
-
+        //methode om ticket te wijzigen
         public static int InsertTicket(Ticket b)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;

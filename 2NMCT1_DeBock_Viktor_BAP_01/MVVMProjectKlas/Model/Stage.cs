@@ -47,6 +47,7 @@ namespace MVVMProjectKlas.Model
             return lijst;
         }
 
+        //methode om Stage toe te voegen
         public static int InsertStage(Stage s)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -74,6 +75,7 @@ namespace MVVMProjectKlas.Model
 
         }
 
+        //methode om stage te wijzigen
         public static int UpdateStage(Stage s)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;

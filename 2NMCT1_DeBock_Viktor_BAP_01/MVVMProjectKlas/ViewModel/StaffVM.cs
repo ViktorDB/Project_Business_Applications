@@ -26,7 +26,7 @@ namespace MVVMProjectKlas.ViewModel
             _contactPersonTypes = ContactpersonType.GetContactpersonTypes();
         }
 
-        //property toevoegen waaraan we de listbox uit de usercontrol bands aan zullen binden
+        //property toevoegen waaraan we de listbox uit de usercontrol staff aan zullen binden
         private ObservableCollection<Contactperson> _staff;
         
         public ObservableCollection<Contactperson> Staff
@@ -159,7 +159,7 @@ namespace MVVMProjectKlas.ViewModel
         #endregion
 
 
-        //property toevoegen waaraan we de listbox uit de usercontrol bands aan zullen binden
+        //property toevoegen waaraan we de cmobobox uit de usercontrol staff aan zullen binden
         private ObservableCollection<ContactpersonType> _contactPersonTypes;
 
         public ObservableCollection<ContactpersonType> ContactPersonTypes
@@ -221,7 +221,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        //Contactpersoon wijzigen
+        //Contactpersoon verwijderen
         public ICommand DeleteStaff
         {
             get

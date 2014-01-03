@@ -67,7 +67,7 @@ namespace MVVMProjectKlas.ViewModel
         public string InsertUntil { get; set; }
         #endregion
 
-        //property toevoegen waaraan we de listbox uit de usercontrol bands aan zullen binden
+        //property toevoegen waaraan we de listbox uit de usercontrol lineup aan zullen binden
         private ObservableCollection<Band> _bands;
 
         public ObservableCollection<Band> Bands
@@ -247,7 +247,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        //Lineup wijzigen
+        //Lineup toevoegen
         public ICommand AddLineUp
         {
             get
@@ -299,6 +299,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
         
+        //lineup filteren
         private void FilterLineUp()
         {
                 ObservableCollection<LineUp> lu = new ObservableCollection<LineUp>();

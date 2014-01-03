@@ -75,7 +75,7 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
-        //property toevoegen waaraan we de listbox uit de usercontrol bands aan zullen binden
+        //property toevoegen voor de genres
         private ObservableCollection<Genre> _genres;
 
         public ObservableCollection<Genre> Genres
@@ -370,6 +370,8 @@ namespace MVVMProjectKlas.ViewModel
             }
         }
 
+
+        //foto veranderen van de band
         public ICommand WijzigPicture
         {
             get

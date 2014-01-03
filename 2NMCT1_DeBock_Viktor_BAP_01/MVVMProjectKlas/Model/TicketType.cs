@@ -74,6 +74,7 @@ namespace MVVMProjectKlas.Model
             return lijst;
         }
 
+        //methode om tickettype toe te voegen
         public static int InsertTicketType(TicketType t)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -111,6 +112,7 @@ namespace MVVMProjectKlas.Model
 
         }
 
+        //methode om tickettype te wijzigen
         public static int UpdateTicketType(TicketType s)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;
@@ -153,6 +155,7 @@ namespace MVVMProjectKlas.Model
 
         }
 
+        //methode om aantal beschikbare tickets te updaten
         public static int UpdateAvailableTickets(Ticket s)
         {
             string provider = ConfigurationManager.ConnectionStrings["db_EventManager"].ProviderName;

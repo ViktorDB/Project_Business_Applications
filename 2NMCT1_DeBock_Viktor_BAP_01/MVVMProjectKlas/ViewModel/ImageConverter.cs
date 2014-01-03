@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MVVMProjectKlas.ViewModel
 {
+    //geprobeerd om mijn images te converteren naar mijn database maar heb het toch anders gedaan
     class ImageConverter
     {
         public byte[] imageToByteArray(System.Drawing.Image imageIn)
