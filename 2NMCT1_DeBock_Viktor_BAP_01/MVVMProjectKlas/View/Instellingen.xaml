@@ -50,7 +50,7 @@
             <RowDefinition Height="45*"/>
         </Grid.RowDefinitions>
         <TabControl Grid.ColumnSpan="23" Grid.Row="2" Grid.RowSpan="10" Grid.Column="1" VerticalContentAlignment="Bottom">
-            <TabItem Header="Line-Up" HorizontalAlignment="Right" Width="59.32">
+            <TabItem Header="Stage" HorizontalAlignment="Right" Width="59.32">
                 <Grid Background="#FFE5E5E5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -92,7 +92,7 @@
                     <ComboBox SelectedItem="{Binding UpdateStageCombobox}" SelectedValue="{Binding UpdateStageCombobox.ID}" SelectedValuePath="ID" ItemsSource="{Binding Stages}" DisplayMemberPath="Name" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Bands">
+            <TabItem Header="Genres">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
